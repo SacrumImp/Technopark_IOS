@@ -1,4 +1,7 @@
-# TravelNote
+# ✈️ TravelNote
+<img src="https://img.shields.io/badge/Swift-5.3-orange%20" alt="Swift Language">  <img src="https://img.shields.io/badge/Xcode-12-%23345caa" alt="Xcode version">  ![GitHub closed issues](https://img.shields.io/github/issues-closed/SacrumImp/travel-note)  ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/SacrumImp/travel-note)
+
+
 
 ## Идея
 
