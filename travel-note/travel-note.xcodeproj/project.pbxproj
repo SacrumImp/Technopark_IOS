@@ -15,6 +15,7 @@
 		206E972E253B7B5C00A16B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */; };
 		206E9739253B7B5D00A16B65 /* travel_noteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9738253B7B5D00A16B65 /* travel_noteTests.swift */; };
 		206E9744253B7B5D00A16B65 /* travel_noteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */; };
+		92BF331525421F440040873A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF331425421F440040873A /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		206E973F253B7B5D00A16B65 /* travel-noteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travel-noteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_noteUITests.swift; sourceTree = "<group>"; };
 		206E9745253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92BF331425421F440040873A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		206E9720253B7B5A00A16B65 /* travel-note */ = {
 			isa = PBXGroup;
 			children = (
+				92BF331425421F440040873A /* SplashViewController.swift */,
 				206E9721253B7B5A00A16B65 /* AppDelegate.swift */,
 				206E9723253B7B5A00A16B65 /* SceneDelegate.swift */,
 				206E9725253B7B5A00A16B65 /* ViewController.swift */,
@@ -261,6 +264,7 @@
 				206E9726253B7B5A00A16B65 /* ViewController.swift in Sources */,
 				206E9722253B7B5A00A16B65 /* AppDelegate.swift in Sources */,
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
+				92BF331525421F440040873A /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
