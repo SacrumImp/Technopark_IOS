@@ -15,60 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2V-Yl-tAD">
+                                <rect key="frame" x="183" y="437.5" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jw8-8N-ZAJ"/>
+                            <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t0f-J9-EmT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="535" y="113"/>
         </scene>
-        <!--Splash View Controller-->
-        <scene sceneID="ih6-NK-XGk">
-            <objects>
-                <viewController id="Hfw-vx-juc" customClass="SplashViewController" customModule="travel_note" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="G5a-sx-xgN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loadScreenBG" translatesAutoresizingMaskIntoConstraints="NO" id="Q0a-JB-3Sb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadScreenPlane" translatesAutoresizingMaskIntoConstraints="NO" id="JjK-fY-AwC">
-                                <rect key="frame" x="38" y="358" width="339" height="180"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0G-6C-jEs">
-                                <rect key="frame" x="87" y="100" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="yBV-hY-1sv"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="leading" secondItem="yBV-hY-1sv" secondAttribute="leading" constant="38" id="A7m-ep-lb1"/>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="centerX" secondItem="G5a-sx-xgN" secondAttribute="centerX" id="AoR-R1-h0j"/>
-                            <constraint firstItem="yBV-hY-1sv" firstAttribute="bottom" secondItem="JjK-fY-AwC" secondAttribute="bottom" constant="324" id="BcO-H9-kLY"/>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="top" secondItem="yBV-hY-1sv" secondAttribute="top" constant="314" id="RpV-aa-lhY"/>
-                            <constraint firstItem="yBV-hY-1sv" firstAttribute="trailing" secondItem="JjK-fY-AwC" secondAttribute="trailing" constant="37" id="UuP-gq-U4E"/>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="centerY" secondItem="G5a-sx-xgN" secondAttribute="centerY" id="a0r-BK-oPV"/>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="centerY" secondItem="G5a-sx-xgN" secondAttribute="centerY" id="aIc-fm-Sad"/>
-                            <constraint firstItem="JjK-fY-AwC" firstAttribute="centerX" secondItem="G5a-sx-xgN" secondAttribute="centerX" id="aoz-by-SGO"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="logoImageView" destination="JjK-fY-AwC" id="C9M-3L-hcn"/>
-                        <outlet property="textImageView" destination="P0G-6C-jEs" id="xEb-lh-oYK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ixT-XK-dem" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-717" y="88"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="loadScreenBG" width="375" height="812"/>
-        <image name="loadScreenPlane" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
