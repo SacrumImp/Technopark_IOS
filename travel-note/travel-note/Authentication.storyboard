@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxX-Ot-2XD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Authentication Phone-->
+        <scene sceneID="8Fo-xj-3Vw">
+            <objects>
+                <viewController id="oxX-Ot-2XD" customClass="Authentication_Phone" customModule="travel_note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rPn-9e-WBN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSb-RH-FpR">
+                                <rect key="frame" x="100.5" y="264" width="213" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="9XA-wt-dQz"/>
+                                    <constraint firstAttribute="width" constant="213" id="iOK-pp-Yc6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-D7-EXz">
+                                <rect key="frame" x="178" y="379" width="58" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Далее"/>
+                                <connections>
+                                    <action selector="sendPhone:" destination="oxX-Ot-2XD" eventType="touchUpInside" id="fcM-tN-mWN"/>
+                                    <segue destination="S4g-gD-6BN" kind="showDetail" id="Geg-BA-cuh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ведите номер телефона" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fq8-aw-Ivg">
+                                <rect key="frame" x="40" y="330" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jOx-6S-dVJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JDS-D7-EXz" firstAttribute="top" secondItem="Fq8-aw-Ivg" secondAttribute="bottom" constant="15" id="22e-6y-E8u"/>
+                            <constraint firstItem="jOx-6S-dVJ" firstAttribute="trailing" secondItem="Fq8-aw-Ivg" secondAttribute="trailing" constant="40" id="2jM-Pc-Gat"/>
+                            <constraint firstItem="Fq8-aw-Ivg" firstAttribute="centerX" secondItem="rPn-9e-WBN" secondAttribute="centerX" id="AEI-cs-Xne"/>
+                            <constraint firstItem="Fq8-aw-Ivg" firstAttribute="top" secondItem="VSb-RH-FpR" secondAttribute="bottom" constant="25" id="Bcr-P5-O0v"/>
+                            <constraint firstItem="Fq8-aw-Ivg" firstAttribute="leading" secondItem="jOx-6S-dVJ" secondAttribute="leading" constant="40" id="EcL-qV-pjq"/>
+                            <constraint firstItem="VSb-RH-FpR" firstAttribute="top" secondItem="jOx-6S-dVJ" secondAttribute="top" constant="220" id="Ltg-jB-iOY"/>
+                            <constraint firstItem="Fq8-aw-Ivg" firstAttribute="centerX" secondItem="rPn-9e-WBN" secondAttribute="centerX" id="O5I-c7-N2W"/>
+                            <constraint firstItem="JDS-D7-EXz" firstAttribute="centerX" secondItem="rPn-9e-WBN" secondAttribute="centerX" id="OTm-oJ-Hgb"/>
+                            <constraint firstItem="VSb-RH-FpR" firstAttribute="centerX" secondItem="rPn-9e-WBN" secondAttribute="centerX" id="T2P-yE-z00"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enterPhone" destination="JDS-D7-EXz" id="BtX-8P-QgQ"/>
+                        <outlet property="phoneNumber" destination="Fq8-aw-Ivg" id="Oyb-DV-PXG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rg4-pw-Of7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-552" y="50"/>
+        </scene>
+        <!--Authentication Code-->
+        <scene sceneID="Q9n-fT-JJL">
+            <objects>
+                <viewController id="S4g-gD-6BN" customClass="Authentication_Code" customModule="travel_note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N95-fE-N8k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код подтверждения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsr-iw-1I9">
+                                <rect key="frame" x="110" y="235" width="194" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите код" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lSK-14-JxF">
+                                <rect key="frame" x="100" y="284" width="214" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckk-eJ-JEH">
+                                <rect key="frame" x="178" y="333" width="58" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Далее"/>
+                                <connections>
+                                    <action selector="sendVerificationCode:" destination="S4g-gD-6BN" eventType="touchUpInside" id="BYY-8R-QFn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ujt-uD-Zt6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lSK-14-JxF" firstAttribute="top" secondItem="Rsr-iw-1I9" secondAttribute="bottom" constant="25" id="4em-AO-Ift"/>
+                            <constraint firstItem="lSK-14-JxF" firstAttribute="leading" secondItem="Ujt-uD-Zt6" secondAttribute="leading" constant="100" id="BR1-co-xPc"/>
+                            <constraint firstItem="Rsr-iw-1I9" firstAttribute="top" secondItem="Ujt-uD-Zt6" secondAttribute="top" constant="235" id="BlV-WG-VSj"/>
+                            <constraint firstItem="Rsr-iw-1I9" firstAttribute="centerX" secondItem="N95-fE-N8k" secondAttribute="centerX" id="OG2-tp-1tS"/>
+                            <constraint firstItem="Ujt-uD-Zt6" firstAttribute="trailing" secondItem="lSK-14-JxF" secondAttribute="trailing" constant="100" id="ZKQ-YH-Os2"/>
+                            <constraint firstItem="Rsr-iw-1I9" firstAttribute="centerX" secondItem="N95-fE-N8k" secondAttribute="centerX" id="cGp-Xf-tPg"/>
+                            <constraint firstItem="Ckk-eJ-JEH" firstAttribute="top" secondItem="lSK-14-JxF" secondAttribute="bottom" constant="15" id="fCP-i8-cUb"/>
+                            <constraint firstItem="Ckk-eJ-JEH" firstAttribute="centerX" secondItem="N95-fE-N8k" secondAttribute="centerX" id="gqi-wY-fXt"/>
+                            <constraint firstItem="lSK-14-JxF" firstAttribute="centerX" secondItem="N95-fE-N8k" secondAttribute="centerX" id="jaq-TK-6Hr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lwe-My-BEj"/>
+                    <connections>
+                        <outlet property="sendCodeButton" destination="Ckk-eJ-JEH" id="EaL-PV-aJX"/>
+                        <outlet property="verificationCodeText" destination="lSK-14-JxF" id="ujj-66-6qN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZl-mI-Dxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147.82608695652175" y="49.553571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
