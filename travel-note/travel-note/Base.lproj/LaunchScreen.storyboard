@@ -20,29 +20,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoText" translatesAutoresizingMaskIntoConstraints="NO" id="4sE-tT-GLP">
-                                <rect key="frame" x="84" y="193" width="246" height="41"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-1c-t94">
+                                <rect key="frame" x="107" y="259" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="jF6-WO-Weu"/>
+                                    <constraint firstAttribute="width" constant="200" id="rpB-Lh-2Nh"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadScreenPlane" translatesAutoresizingMaskIntoConstraints="NO" id="gCN-c9-iDO">
-                                <rect key="frame" x="38" y="358" width="339" height="180"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoText" translatesAutoresizingMaskIntoConstraints="NO" id="dvK-Yf-dVX">
+                                <rect key="frame" x="117.5" y="484" width="179" height="41"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gCN-c9-iDO" firstAttribute="top" secondItem="4sE-tT-GLP" secondAttribute="bottom" constant="124" id="2FV-UP-ApU"/>
-                            <constraint firstItem="gCN-c9-iDO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="8NM-yh-k9d"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="IF5-mI-7yL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gCN-c9-iDO" secondAttribute="trailing" constant="37" id="KNf-vt-6ku"/>
-                            <constraint firstItem="gCN-c9-iDO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Mma-UO-Gmt"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="POn-ag-EI6"/>
-                            <constraint firstItem="gCN-c9-iDO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Rkw-Q5-Cq2"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SXX-Uf-EkG"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="UNM-xF-eUU"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="dCY-WK-mf5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gCN-c9-iDO" secondAttribute="bottom" constant="324" id="mfG-Cq-8Kq"/>
-                            <constraint firstItem="gCN-c9-iDO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sCo-A8-3U0"/>
-                            <constraint firstItem="4sE-tT-GLP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="149" id="z21-Q6-yyu"/>
+                            <constraint firstItem="dvK-Yf-dVX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="440" id="PUc-wA-YK6"/>
+                            <constraint firstItem="dvK-Yf-dVX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="brq-CW-91g"/>
+                            <constraint firstItem="GcN-1c-t94" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="215" id="nSx-qL-5VM"/>
+                            <constraint firstItem="GcN-1c-t94" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pmt-RU-O3R"/>
+                            <constraint firstItem="GcN-1c-t94" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qTe-HV-mGK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,8 +49,8 @@
     </scenes>
     <resources>
         <image name="loadScreenBG" width="375" height="812"/>
-        <image name="loadScreenPlane" width="1024" height="1024"/>
-        <image name="logoText" width="246" height="41"/>
+        <image name="loadScreenLogo" width="180" height="180"/>
+        <image name="logoText" width="179" height="41"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
