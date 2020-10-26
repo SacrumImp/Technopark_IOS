@@ -23,12 +23,20 @@
                                     <segue destination="EMs-0Q-ggX" kind="show" id="he7-eJ-Rcd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2V-Yl-tAD">
+                                <rect key="frame" x="183" y="437.5" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QIT-Cg-dVV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k3V-6b-mYl"/>
                             <constraint firstItem="QIT-Cg-dVV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mqE-Hl-ZGM"/>
+                            <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jw8-8N-ZAJ"/>
+                            <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t0f-J9-EmT"/>
                         </constraints>
                     </view>
                 </viewController>
