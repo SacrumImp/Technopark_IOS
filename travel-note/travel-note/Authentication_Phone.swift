@@ -14,11 +14,9 @@ class Authentication_Phone: UIViewController {
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var enterPhone: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .systemBackground
     }
     
     @IBAction func sendPhone(_ sender: Any) {

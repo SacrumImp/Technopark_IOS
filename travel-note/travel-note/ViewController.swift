@@ -90,6 +90,11 @@ class ViewController: UIViewController {
             }
             AccountButton.setTitle("Выйти", for: .normal)
         }
+        let viewController = HomeViewController()
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
+        
     }
     
 }
