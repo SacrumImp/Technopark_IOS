@@ -1,103 +1,94 @@
 {
   "images" : [
     {
-      "filename" : "icon.png",
+      "filename" : "ezgif.com-gif-maker-19.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "ezgif.com-gif-maker-2.png",
+      "filename" : "ezgif.com-gif-maker-18.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "ezgif.com-gif-maker-3.png",
+      "filename" : "ezgif.com-gif-maker-21.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "ezgif.com-gif-maker-4.png",
+      "filename" : "ezgif.com-gif-maker-20.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "ezgif.com-gif-maker-9.png",
+      "filename" : "ezgif.com-gif-maker-22.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "ezgif.com-gif-maker-10.png",
+      "filename" : "ezgif.com-gif-maker-23.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "ezgif.com-gif-maker-11.png",
+      "filename" : "ezgif.com-gif-maker-24.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "ezgif.com-gif-maker-12.png",
+      "filename" : "ezgif.com-gif-maker-25.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "ezgif.com-gif-maker-6.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "ezgif.com-gif-maker.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "ezgif.com-gif-maker-7.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "ezgif.com-gif-maker-5.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "ezgif.com-gif-maker-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "ezgif.com-gif-maker-8.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "ezgif.com-gif-maker-13.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "ezgif.com-gif-maker-14.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "ezgif.com-gif-maker-15.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
