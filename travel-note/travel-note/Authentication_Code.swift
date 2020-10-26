@@ -29,6 +29,8 @@ class Authentication_Code: UIViewController {
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil{
                 print("User is signed in")
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
             else{
                 print("Failed signing")

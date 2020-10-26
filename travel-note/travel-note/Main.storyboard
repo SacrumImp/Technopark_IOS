@@ -17,9 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIT-Cg-dVV">
-                                <rect key="frame" x="160.5" y="433" width="93" height="30"/>
+                                <rect key="frame" x="286" y="64" width="93" height="30"/>
                                 <state key="normal" title="Авторизация"/>
                                 <connections>
+                                    <action selector="useAuthentification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A90-MF-iOc"/>
                                     <segue destination="EMs-0Q-ggX" kind="show" id="he7-eJ-Rcd"/>
                                 </connections>
                             </button>
@@ -33,12 +34,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k3V-6b-mYl"/>
-                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mqE-Hl-ZGM"/>
+                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="cec-Wp-ueQ"/>
+                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fVS-dQ-xn3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIT-Cg-dVV" secondAttribute="trailing" constant="35" id="iNG-XS-9FH"/>
                             <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jw8-8N-ZAJ"/>
                             <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t0f-J9-EmT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AccountButton" destination="QIT-Cg-dVV" id="XlT-IK-LVH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
