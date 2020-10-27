@@ -64,9 +64,13 @@
 <div align="center">
 <h2><b>Интерфейс</b></h2>
 </div>
-<div align="center">
-    <link title="FIGMA" href="https://www.figma.com/file/RIvTASjmTJufIFqNp7s3ij/pin-note?node-id=3%3A12902"> 
-</div>
+<details>
+<summary>Тута</summary>
+    <div align="center">
+        <a href="https://www.figma.com/file/RIvTASjmTJufIFqNp7s3ij/pin-note?node-id=3%3A12902">ФИГМА</a>
+    </div>
+</details>
+
 
 **(tbc)**
 
