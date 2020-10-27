@@ -1,6 +1,15 @@
-# 📍 PinNote
+<div align="center">
+<p>
+    <img width="100" src="https://raw.githubusercontent.com/SacrumImp/pin-note/featurescreen/images/icon.svg?sanitize=true">
+</p>
+<h1>📍 PinNote 📍</h1>
+</div>
+<div align="center">
+<p>Приложения для продвинутых заметок</p>
+
 <img src="https://img.shields.io/badge/Swift-5.3-orange%20" alt="Swift Language">  <img src="https://img.shields.io/badge/Xcode-12-%23345caa" alt="Xcode version">  ![GitHub closed issues](https://img.shields.io/github/issues-closed/SacrumImp/travel-note)  ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/SacrumImp/travel-note)
 
+</div>
 
 
 ## Идея
@@ -52,16 +61,12 @@
 
 - ***(tbc)***
 
-## Интерфейс
-| _набросок 1_                   | _набросок 2_                   |
-|:------------------------------:|:------------------------------:|
-| <img src="/images/draft0.jpg"> | <img src="/images/draft1.jpg"> |
-|       страница с картой        |       страница с картой        |
-
-| _набросок 3_                   | _набросок 4_                   |
-|:------------------------------:|:------------------------------:|
-| <img src="/images/draft2.jpg"> | <img src="/images/draft3.jpg"> |
-|            маршрут             |             заметка            |
+<div align="center">
+<h2><b>Интерфейс</b></h2>
+</div>
+<div align="center">
+    <link title="FIGMA" href="https://www.figma.com/file/RIvTASjmTJufIFqNp7s3ij/pin-note?node-id=3%3A12902"> 
+</div>
 
 **(tbc)**
 
