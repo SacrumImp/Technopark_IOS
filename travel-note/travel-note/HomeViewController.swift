@@ -12,15 +12,20 @@ class HomeViewController: UIViewController {
 
     let lable: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
-        lable.text = "Hello!"
+        lable.text = "Hello!" //STRINGS:
         lable.font = .systemFont(ofSize: 24, weight: .bold)
         lable.textAlignment = .center
         return lable
     }()
     
     let authentificationButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 50, y: 15, width: 300, height: 100))
-        button.setTitle("Авторизация", for: .normal)
+        let button = UIButton(frame: CGRect(x: 180, y: 35, width: 300, height: 100))
+        if FirebaseAuth.Auth.auth().currentUser != nil {
+            button.setTitle("Выход", for: .normal) //STRINGS:
+        }
+        else{
+            button.setTitle("Авторизация", for: .normal) //STRINGS:
+        }
         button.setTitleColor(UIColor.blue, for: .normal)
         return button
     }()
@@ -41,14 +46,13 @@ class HomeViewController: UIViewController {
                 try FirebaseAuth.Auth.auth().signOut()
             }
             catch{
-                print("Error sign out")
+                print("Error sign out") //STRINGS:
             }
-            authentificationButton.setTitle("Авторизация", for: .normal)
+            authentificationButton.setTitle("Авторизация", for: .normal) //STRINGS:
         }
         let viewController = Authentication_Phone()
-        viewController.modalTransitionStyle = .crossDissolve
-        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .automatic
         self.present(viewController, animated: true)
     }
-
 }

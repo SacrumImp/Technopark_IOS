@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var AccountButton: UIButton!
     
     private let imageViewText: UIImageView = {
         let imageViewLogo = UIImageView(frame: CGRect(x: 146, y: 542, width: 123, height: 27))
@@ -36,10 +33,6 @@ class ViewController: UIViewController {
         view.addSubview(imageViewText)
         view.addSubview(imageViewLogo)
         view.backgroundColor = .systemBackground
-        
-        if FirebaseAuth.Auth.auth().currentUser != nil{
-            AccountButton.setTitle("Выйти", for: .normal)
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,24 +69,6 @@ class ViewController: UIViewController {
                 })
             }
         })
-        
-    }
-
-    @IBAction func useAuthentification(_ sender: Any) {
-        
-        if FirebaseAuth.Auth.auth().currentUser != nil{
-            do{
-                try FirebaseAuth.Auth.auth().signOut()
-            }
-            catch{
-                print("Error sign out")
-            }
-            AccountButton.setTitle("Выйти", for: .normal)
-        }
-        let viewController = HomeViewController()
-        viewController.modalTransitionStyle = .crossDissolve
-        viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true)
         
     }
     

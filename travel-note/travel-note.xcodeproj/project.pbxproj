@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20160D752541D21100D64BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20160D742541D21100D64BD4 /* GoogleService-Info.plist */; };
-		20160D762541D21100D64BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20160D742541D21100D64BD4 /* GoogleService-Info.plist */; };
-		20160D772541D21100D64BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20160D742541D21100D64BD4 /* GoogleService-Info.plist */; };
 		20160D7F2541D2DD00D64BD4 /* Pods_travel_note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128D5E65462DFB7CDCE421E6 /* Pods_travel_note.framework */; };
+		204428A7254DBE2900E05E9D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 204428A6254DBE2900E05E9D /* Storyboard.storyboard */; };
+		204428AF254DBE4500E05E9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 204428AE254DBE4500E05E9D /* GoogleService-Info.plist */; };
 		20591BA7254736A90079C730 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20591BA6254736A90079C730 /* Main.storyboard */; };
 		206E9722253B7B5A00A16B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9721253B7B5A00A16B65 /* AppDelegate.swift */; };
 		206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9723253B7B5A00A16B65 /* SceneDelegate.swift */; };
@@ -19,7 +18,6 @@
 		206E972E253B7B5C00A16B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */; };
 		206E9739253B7B5D00A16B65 /* travel_noteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9738253B7B5D00A16B65 /* travel_noteTests.swift */; };
 		206E9744253B7B5D00A16B65 /* travel_noteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */; };
-		20E531B1254217940038453E /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E531B0254217940038453E /* Authentication.storyboard */; };
 		20E531C425424B1F0038453E /* Authentication_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531C325424B1F0038453E /* Authentication_Phone.swift */; };
 		20E531D82544FD900038453E /* Authentication_Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531D72544FD900038453E /* Authentication_Code.swift */; };
 		30F12B953CBDFC85ED4D1BC8 /* Pods_travel_note_travel_noteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */; };
@@ -50,7 +48,8 @@
 		200C81412541D8B200BE2B7D /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		200C814A2541D8E400BE2B7D /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		200C81502541D8EA00BE2B7D /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20160D742541D21100D64BD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		204428A6254DBE2900E05E9D /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		204428AE254DBE4500E05E9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20591BA6254736A90079C730 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		206E971E253B7B5A00A16B65 /* travel-note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travel-note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E9721253B7B5A00A16B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +65,6 @@
 		206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_noteUITests.swift; sourceTree = "<group>"; };
 		206E9745253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20BA4A2F2541DAB6004DEF97 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20E531B0254217940038453E /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		20E531C325424B1F0038453E /* Authentication_Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication_Phone.swift; sourceTree = "<group>"; };
 		20E531D72544FD900038453E /* Authentication_Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication_Code.swift; sourceTree = "<group>"; };
 		286895D8942FB4619326C6B7 /* Pods-travel-noteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-noteTests.debug.xcconfig"; path = "Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,9 +72,9 @@
 		593298C9550532362A8DCA26 /* Pods-travel-note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note.debug.xcconfig"; path = "Target Support Files/Pods-travel-note/Pods-travel-note.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8E0F08582DE3F2583DCA57 /* Pods-travel-note-travel-noteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note-travel-noteUITests.release.xcconfig"; path = "Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		799CB7C2BA41EE41A1DC075D /* Pods-travel-noteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-noteTests.release.xcconfig"; path = "Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests.release.xcconfig"; sourceTree = "<group>"; };
+		9211F11E2546F8B800E3BD16 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B0F993FE509EC7BBAB4D4C5B /* Pods-travel-note-travel-noteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note-travel-noteUITests.debug.xcconfig"; path = "Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_note_travel_noteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9211F11E2546F8B800E3BD16 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +137,8 @@
 				206E972A253B7B5C00A16B65 /* Assets.xcassets */,
 				206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */,
 				206E972F253B7B5C00A16B65 /* Info.plist */,
-				20160D742541D21100D64BD4 /* GoogleService-Info.plist */,
-				20E531B0254217940038453E /* Authentication.storyboard */,
+				204428AE254DBE4500E05E9D /* GoogleService-Info.plist */,
+				204428A6254DBE2900E05E9D /* Storyboard.storyboard */,
 				20E531C325424B1F0038453E /* Authentication_Phone.swift */,
 				20E531D72544FD900038453E /* Authentication_Code.swift */,
 				9211F11E2546F8B800E3BD16 /* HomeViewController.swift */,
@@ -205,7 +203,7 @@
 				206E971B253B7B5A00A16B65 /* Frameworks */,
 				206E971C253B7B5A00A16B65 /* Resources */,
 				D1D02E6012257AF45B0CA81D /* [CP] Embed Pods Frameworks */,
-				20E531CB2544F8000038453E /* ShellScript */,
+				20E531CB2544F8000038453E /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -304,10 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				206E972E253B7B5C00A16B65 /* LaunchScreen.storyboard in Resources */,
-				20160D752541D21100D64BD4 /* GoogleService-Info.plist in Resources */,
 				20591BA7254736A90079C730 /* Main.storyboard in Resources */,
 				206E972B253B7B5C00A16B65 /* Assets.xcassets in Resources */,
-				20E531B1254217940038453E /* Authentication.storyboard in Resources */,
+				204428A7254DBE2900E05E9D /* Storyboard.storyboard in Resources */,
+				204428AF254DBE4500E05E9D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20160D762541D21100D64BD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,14 +320,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20160D772541D21100D64BD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20E531CB2544F8000038453E /* ShellScript */ = {
+		20E531CB2544F8000038453E /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,13 +335,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+			shellScript = "TAGS=\"TODO:|FIXME:|STRINGS:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
 		3FD8230AF79D5101F344EEA1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

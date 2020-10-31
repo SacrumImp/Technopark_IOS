@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,14 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIT-Cg-dVV">
-                                <rect key="frame" x="286" y="64" width="93" height="30"/>
-                                <state key="normal" title="Авторизация"/>
-                                <connections>
-                                    <action selector="useAuthentification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A90-MF-iOc"/>
-                                    <segue destination="EMs-0Q-ggX" kind="show" id="he7-eJ-Rcd"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2V-Yl-tAD">
                                 <rect key="frame" x="183" y="437.5" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -34,16 +26,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="cec-Wp-ueQ"/>
-                            <constraint firstItem="QIT-Cg-dVV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fVS-dQ-xn3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIT-Cg-dVV" secondAttribute="trailing" constant="35" id="iNG-XS-9FH"/>
                             <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jw8-8N-ZAJ"/>
                             <constraint firstItem="W2V-Yl-tAD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t0f-J9-EmT"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="AccountButton" destination="QIT-Cg-dVV" id="XlT-IK-LVH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
