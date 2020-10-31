@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         }
         let viewController = Authentication_Phone()
         viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .formSheet
+        viewController.modalPresentationStyle = .automatic
         self.present(viewController, animated: true)
     }
 }
