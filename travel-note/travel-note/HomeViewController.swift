@@ -52,8 +52,7 @@ class HomeViewController: UIViewController {
         }
         let viewController = Authentication_Phone()
         viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .automatic
-        viewController.preferredContentSize = CGSize(width: 414, height: 100)
+        viewController.modalPresentationStyle = .formSheet
         self.present(viewController, animated: true)
     }
 }

@@ -46,7 +46,12 @@ class Authentication_Code: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
             else{
-                print("Failed signing") //TODO: Сделать окно для уведомления пользователя о проблемах с авторизацией
+                let errorCode = UIAlertController(title: "Ошибка", message: "Код из СМС не совпадает", preferredStyle: .alert) //STRINGS:
+                errorCode.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
+                    self.modalTransitionStyle = .coverVertical
+                    self.dismiss(animated: true)
+                })) //STRINGS:
+                self.present(errorCode, animated: true, completion: nil)
             }
         }
     }

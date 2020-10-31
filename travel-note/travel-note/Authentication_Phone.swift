@@ -52,8 +52,11 @@ class Authentication_Phone: UIViewController {
                 }
             }
             else{
-                print("Can't get verification ID") //STRINGS:
-                //TODO: сделать окно для уведомления пользователя о проблемах с отправкой номера
+                let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось отправить СМС", preferredStyle: .alert) //STRINGS:
+                errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
+                    self.dismiss(animated: true)
+                })) //STRINGS:
+                self.present(errorPhone, animated: true, completion: nil)
             }
         }
     }
