@@ -8,6 +8,8 @@ target 'travel-note' do
   # Pods for travel-note
   pod 'Firebase'
   pod 'Firebase/Auth'
+  
+  pod 'PhoneNumberKit', '~> 3.3'
 
   target 'travel-noteTests' do
     inherit! :search_paths

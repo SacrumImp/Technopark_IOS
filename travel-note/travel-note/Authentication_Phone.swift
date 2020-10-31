@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import PhoneNumberKit
 
 class Authentication_Phone: UIViewController {
     
@@ -17,11 +18,12 @@ class Authentication_Phone: UIViewController {
         return button
     }()
     
-    let phoneTextField: UITextField! = {
-        let textField = UITextField(frame: CGRect(x: 100, y: 270, width: 400, height: 100))
-        textField.placeholder = "Введите номер телефона" //STRINGS:
+    let phoneTextField: PhoneNumberTextField! = {
+        let textField = PhoneNumberTextField(frame: CGRect(x: 100, y: 270, width: 400, height: 100))
         textField.textContentType = .telephoneNumber
         textField.keyboardType = .phonePad
+        textField.withFlag = true
+        textField.withExamplePlaceholder = true
         return textField
     }()
     
