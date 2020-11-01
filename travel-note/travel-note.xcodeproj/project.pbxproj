@@ -207,6 +207,7 @@
 				206E971C253B7B5A00A16B65 /* Resources */,
 				D1D02E6012257AF45B0CA81D /* [CP] Embed Pods Frameworks */,
 				20E531CB2544F8000038453E /* Run Script */,
+				0BCC152D72863FBB395BFB5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +247,7 @@
 				206E973C253B7B5D00A16B65 /* Frameworks */,
 				206E973D253B7B5D00A16B65 /* Resources */,
 				F01DAE97CD4A2BD616B5686D /* [CP] Embed Pods Frameworks */,
+				147614DF9607F484A33DC30B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,6 +330,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0BCC152D72863FBB395BFB5A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		147614DF9607F484A33DC30B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		20E531CB2544F8000038453E /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
