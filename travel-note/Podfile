@@ -6,10 +6,16 @@ target 'travel-note' do
   use_frameworks!
 
   # Pods for travel-note
+  
+  #Авторизация
   pod 'Firebase'
   pod 'Firebase/Auth'
   
+  #Валидация номера телефона
   pod 'PhoneNumberKit', '~> 3.3'
+  
+  #Карты
+  pod 'GoogleMaps'
 
   target 'travel-noteTests' do
     inherit! :search_paths
