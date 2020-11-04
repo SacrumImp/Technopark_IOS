@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         view.addSubview(imageViewBG)
         view.addSubview(imageViewText)
         view.addSubview(imageViewLogo)
+        view.backgroundColor = .systemBackground
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +71,6 @@ class ViewController: UIViewController {
         })
         
     }
-
-
+    
 }
 
