@@ -18,8 +18,16 @@ class HomeViewController: UIViewController {
         return lable
     }()
     
+    let lableVC: UILabel = {
+        let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
+        lable.text = "MapVC" //STRINGS:
+        lable.font = .systemFont(ofSize: 24, weight: .bold)
+        lable.textAlignment = .center
+        return lable
+    }()
+    
     let authentificationButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 180, y: 35, width: 300, height: 100))
+        let button = UIButton(frame: CGRect(x: 180, y: 50, width: 300, height: 100))
         if FirebaseAuth.Auth.auth().currentUser != nil {
             button.setTitle("Выход", for: .normal) //STRINGS:
         }
@@ -32,11 +40,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(lable)
+        lable.center = view.center
+        
+        view.addSubview(lableVC)
+        lableVC.center.x = self.view.center.x
+        
         view.addSubview(authentificationButton)
         authentificationButton.addTarget(self, action: #selector(useAuthentification(sender:)), for: .touchUpInside)
-        view.backgroundColor = .systemBackground
-        lable.center = view.center
     }
     
     @objc func useAuthentification(sender: UIButton) {
