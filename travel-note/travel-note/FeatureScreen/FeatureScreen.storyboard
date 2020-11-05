@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feature Screen2 View Controller-->
+        <scene sceneID="sj3-KP-iy8">
+            <objects>
+                <viewController id="JE9-FU-hOa" customClass="FeatureScreen2ViewController" customModule="travel_note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KuU-3j-B5P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OB8-d0-Km8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="wmR-vM-RMw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="k0b-jz-NKZ"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JE9-FU-hOa" id="ExW-j9-Hp7"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="hiR-oj-EBe">
+                                <rect key="frame" x="146" y="834" width="123" height="28"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n2T-1X-OlR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OB8-d0-Km8" firstAttribute="centerY" secondItem="n2T-1X-OlR" secondAttribute="centerY" id="M4W-1W-sty"/>
+                            <constraint firstItem="OB8-d0-Km8" firstAttribute="centerX" secondItem="n2T-1X-OlR" secondAttribute="centerX" id="WHm-cL-NE7"/>
+                            <constraint firstItem="OB8-d0-Km8" firstAttribute="width" secondItem="n2T-1X-OlR" secondAttribute="width" multiplier="0.57971" id="dEI-30-j6N"/>
+                            <constraint firstItem="hiR-oj-EBe" firstAttribute="centerX" secondItem="n2T-1X-OlR" secondAttribute="centerX" id="fMY-Ts-cte"/>
+                            <constraint firstItem="OB8-d0-Km8" firstAttribute="height" secondItem="n2T-1X-OlR" secondAttribute="height" multiplier="0.156479" id="mWl-pB-YHx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="hiR-oj-EBe" id="sDR-Bm-mnT"/>
+                        <outlet property="scrollView" destination="OB8-d0-Km8" id="qdK-Pi-GLL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Czb-vP-Nil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1578.2608695652175" y="-825"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         }, completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
-                    let viewController = HomeViewController()
+                    let viewController = HomeViewController()                   // <--- Вход в FeatureScreen(1, 2)ViewController (при первом запуске)
                     viewController.modalTransitionStyle = .crossDissolve
                     viewController.modalPresentationStyle = .fullScreen
                     self.present(viewController, animated: true)
