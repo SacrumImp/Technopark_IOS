@@ -14,14 +14,21 @@ class Authentication_Phone: UIViewController {
         didSet {
             viewModel.errorDidChange = { [unowned self] viewModel in
                 guard let error = viewModel.error else {return}
+                error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
+                    Authentication_Phone().dismiss(animated: true)
+                })) //STRINGS:
                 self.present(error, animated: true, completion: nil)
             }
             viewModel.successDidChange = { [unowned self] viewModel in
+                let codeView = Authentication_Code()
+                let authentificationViewModel = AuthentificationViewModel()
+                codeView.viewModel = authentificationViewModel
+                codeView.modalTransitionStyle = .flipHorizontal
+                codeView.modalPresentationStyle = .automatic
                 self.modalTransitionStyle = .flipHorizontal
-                guard let success = viewModel.success else {return}
                 weak var pvc = self.presentingViewController
                 self.dismiss(animated: true) {
-                    pvc?.present(success, animated: true)
+                    pvc?.present(codeView, animated: true)
                 }
             }
         }
@@ -65,13 +72,11 @@ class Authentication_Phone: UIViewController {
         view.addSubview(enterPhoneButton)
         enterPhoneButton.center.x = self.view.center.x
         enterPhoneButton.addTarget(self, action: #selector(enterPhone(sender:)), for: .touchUpInside)
-
+        
     }
     
     @objc func enterPhone(sender: UIButton) {
-        
         guard let phoneNumber = phoneTextField.text else {return}
         viewModel.sendPhone(phoneNumber: phoneNumber)
-        
     }
 }

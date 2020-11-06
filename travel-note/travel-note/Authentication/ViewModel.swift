@@ -13,7 +13,7 @@ protocol AuthentificationViewModelProtocol: class {
     var error: UIAlertController? {get}
     var errorDidChange: ((AuthentificationViewModelProtocol) -> ())? { get set }
     
-    var success: UIViewController? {get}
+    var success: Bool? {get}
     var successDidChange: ((AuthentificationViewModelProtocol) -> ())? { get set }
     
     func sendPhone(phoneNumber: String)
@@ -23,7 +23,7 @@ protocol AuthentificationViewModelProtocol: class {
 
 class AuthentificationViewModel: AuthentificationViewModelProtocol {
     
-    var success: UIViewController? {
+    var success: Bool? {
         didSet{
             self.successDidChange?(self)
         }
@@ -42,16 +42,10 @@ class AuthentificationViewModel: AuthentificationViewModelProtocol {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
             if error == nil{
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                let codeViewController = Authentication_Code()
-                codeViewController.modalTransitionStyle = .flipHorizontal
-                codeViewController.modalPresentationStyle = .automatic
-                self.success = codeViewController
+                self.success = true
             }
             else{
                 let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось отправить СМС", preferredStyle: .alert) //STRINGS:
-                errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    Authentication_Phone().dismiss(animated: true)
-                })) //STRINGS:
                 self.error = errorPhone
             }
         }
@@ -65,13 +59,10 @@ class AuthentificationViewModel: AuthentificationViewModelProtocol {
         Auth.auth().signIn(with: credential) { (success, error) in
             if error == nil{
                 print("User is signed in")
-
+                self.success = true
             }
             else{
                 let errorCode = UIAlertController(title: "Ошибка", message: "Код из СМС не совпадает", preferredStyle: .alert) //STRINGS:
-                errorCode.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    Authentication_Code().dismiss(animated: true)
-                })) //STRINGS:
                 self.error = errorCode
             }
         }
