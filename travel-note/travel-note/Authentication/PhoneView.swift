@@ -6,10 +6,26 @@
 //
 
 import UIKit
-import FirebaseAuth
 import PhoneNumberKit
 
 class Authentication_Phone: UIViewController {
+    
+    var viewModel: AuthentificationViewModelProtocol!{
+        didSet {
+            viewModel.errorDidChange = { [unowned self] viewModel in
+                guard let error = viewModel.error else {return}
+                self.present(error, animated: true, completion: nil)
+            }
+            viewModel.successDidChange = { [unowned self] viewModel in
+                self.modalTransitionStyle = .flipHorizontal
+                guard let success = viewModel.success else {return}
+                weak var pvc = self.presentingViewController
+                self.dismiss(animated: true) {
+                    pvc?.present(success, animated: true)
+                }
+            }
+        }
+    }
     
     let authLable: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
@@ -54,27 +70,8 @@ class Authentication_Phone: UIViewController {
     
     @objc func enterPhone(sender: UIButton) {
         
-        guard let sendPhoneNumber = phoneTextField.text else {return}
+        guard let phoneNumber = phoneTextField.text else {return}
+        viewModel.sendPhone(phoneNumber: phoneNumber)
         
-        PhoneAuthProvider.provider().verifyPhoneNumber(sendPhoneNumber, uiDelegate: nil) { (verificationID, error) in
-            if error == nil{
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                let codeViewController = Authentication_Code()
-                codeViewController.modalTransitionStyle = .flipHorizontal
-                self.modalTransitionStyle = .flipHorizontal
-                codeViewController.modalPresentationStyle = .automatic
-                weak var pvc = self.presentingViewController
-                self.dismiss(animated: true) {
-                    pvc?.present(codeViewController, animated: true)
-                }
-            }
-            else{
-                let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось отправить СМС", preferredStyle: .alert) //STRINGS:
-                errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    self.dismiss(animated: true)
-                })) //STRINGS:
-                self.present(errorPhone, animated: true, completion: nil)
-            }
-        }
     }
 }
