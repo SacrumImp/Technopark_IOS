@@ -15,7 +15,7 @@ class Authentication_Phone: UIViewController {
             viewModel.errorDidChange = { [unowned self] viewModel in
                 guard let error = viewModel.error else {return}
                 error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    Authentication_Phone().dismiss(animated: true)
+                    self.dismiss(animated: true)
                 })) //STRINGS:
                 self.present(error, animated: true, completion: nil)
             }
