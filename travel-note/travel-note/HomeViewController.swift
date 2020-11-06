@@ -86,11 +86,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             catch{
                 print("Error sign out") //STRINGS:
             }
-            authentificationButton.setTitle("Авторизация", for: .normal) //STRINGS:
+            print("Signed out")
         }
-        let viewController = Authentication_Phone()
-        viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .automatic
-        self.present(viewController, animated: true)
+        
+        let authentificationViewModel = AuthentificationViewModel()
+        let authentificationView = Authentication_Phone()
+        authentificationView.viewModel = authentificationViewModel
+        authentificationView.modalTransitionStyle = .coverVertical
+        authentificationView.modalPresentationStyle = .automatic
+        self.present(authentificationView, animated: true)
     }
 }
