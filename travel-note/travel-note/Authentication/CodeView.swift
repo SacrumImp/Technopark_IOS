@@ -12,16 +12,16 @@ class Authentication_Code: UIViewController {
     
     var viewModel: AuthentificationViewModelProtocol!{
         didSet {
-            viewModel.errorDidChange = { [unowned self] viewModel in
+            viewModel.errorDidChange = { [weak self] viewModel in
                 guard let error = viewModel.error else {return}
                 error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    self.dismiss(animated: true)
+                    self?.dismiss(animated: true)
                 })) //STRINGS:
-                self.present(error, animated: true, completion: nil)
+                self?.present(error, animated: true, completion: nil)
             }
-            viewModel.successDidChange = { [unowned self] viewModel in
-                self.modalTransitionStyle = .coverVertical
-                self.dismiss(animated: true, completion: nil)
+            viewModel.successDidChange = { [weak self] viewModel in
+                self?.modalTransitionStyle = .coverVertical
+                self?.dismiss(animated: true, completion: nil)
             }
         }
     }
