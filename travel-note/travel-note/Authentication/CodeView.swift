@@ -22,6 +22,10 @@ class Authentication_Code: UIViewController {
             viewModel.successDidChange = { [unowned self] viewModel in
                 self.modalTransitionStyle = .coverVertical
                 self.dismiss(animated: true, completion: nil)
+                let viewController = TabBarController()
+                viewController.modalTransitionStyle = .crossDissolve
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true)
             }
         }
     }
