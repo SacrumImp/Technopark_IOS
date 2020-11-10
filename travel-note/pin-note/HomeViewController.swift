@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         labelVC.center.x = self.view.center.x
         
         view.addSubview(authentificationButton)
-        authentificationButton.addTarget(self, action: #selector(useAuthentification(sender:)), for: .touchUpInside)
+        authentificationButton.addTarget(self, action: #selector(useAuthentification), for: .touchUpInside)
         
     }
     
@@ -77,7 +77,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    @objc func useAuthentification(sender: UIButton) {
+    @objc
+    func useAuthentification() {
         
         if FirebaseAuth.Auth.auth().currentUser != nil{
             do{

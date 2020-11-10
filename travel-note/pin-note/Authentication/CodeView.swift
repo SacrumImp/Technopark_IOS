@@ -64,10 +64,11 @@ class AuthenticationCodeViewController: UIViewController {
         
         view.addSubview(enterCodeButton)
         enterCodeButton.center.x = self.view.center.x
-        enterCodeButton.addTarget(self, action: #selector(enterCode(sender:)), for: .touchUpInside)
+        enterCodeButton.addTarget(self, action: #selector(enterCode), for: .touchUpInside)
     }
     
-    @objc func enterCode(sender: UIButton) {
+    @objc
+    func enterCode() {
         
         guard let verificationCode  = codeTextField.text else {return}
         viewModel.sendCode(code: verificationCode)

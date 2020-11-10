@@ -71,11 +71,12 @@ class AuthenticationPhoneViewController: UIViewController {
         
         view.addSubview(enterPhoneButton)
         enterPhoneButton.center.x = self.view.center.x
-        enterPhoneButton.addTarget(self, action: #selector(enterPhone(sender:)), for: .touchUpInside)
+        enterPhoneButton.addTarget(self, action: #selector(enterPhone), for: .touchUpInside)
         
     }
     
-    @objc func enterPhone(sender: UIButton) {
+    @objc
+    func enterPhone() {
         guard let phoneNumber = phoneTextField.text else {return}
         viewModel.sendPhone(phoneNumber: phoneNumber)
     }
