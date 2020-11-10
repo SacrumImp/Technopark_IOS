@@ -8,7 +8,7 @@
 import UIKit
 import PhoneNumberKit
 
-class Authentication_Phone: UIViewController {
+class AuthenticationPhoneViewController: UIViewController {
     
     var viewModel: AuthentificationViewModelProtocol!{
         didSet {
@@ -20,7 +20,7 @@ class Authentication_Phone: UIViewController {
                 self?.present(error, animated: true, completion: nil)
             }
             viewModel.successDidChange = { [weak self] viewModel in
-                let codeView = Authentication_Code()
+                let codeView = AuthenticationCodeViewController()
                 let authentificationViewModel = AuthentificationViewModel()
                 codeView.viewModel = authentificationViewModel
                 codeView.modalTransitionStyle = .flipHorizontal
@@ -34,7 +34,7 @@ class Authentication_Phone: UIViewController {
         }
     }
     
-    let authLable: UILabel = {
+    let authLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
         lable.text = "Авторизация" //STRINGS:
         lable.font = .systemFont(ofSize: 30, weight: .bold)
@@ -63,8 +63,8 @@ class Authentication_Phone: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        view.addSubview(authLable)
-        authLable.center.x = self.view.center.x
+        view.addSubview(authLabel)
+        authLabel.center.x = self.view.center.x
         
         view.addSubview(phoneTextField)
         phoneTextField.center.x = self.view.center.x

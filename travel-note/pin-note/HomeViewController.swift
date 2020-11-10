@@ -13,7 +13,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     
-    let lableVC: UILabel = {
+    let labelVC: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
         lable.text = "MapVC" //STRINGS:
         lable.font = .systemFont(ofSize: 24, weight: .bold)
@@ -46,8 +46,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         view.addSubview(getMapView())
         
-        view.addSubview(lableVC)
-        lableVC.center.x = self.view.center.x
+        view.addSubview(labelVC)
+        labelVC.center.x = self.view.center.x
         
         view.addSubview(authentificationButton)
         authentificationButton.addTarget(self, action: #selector(useAuthentification(sender:)), for: .touchUpInside)
@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         let authentificationViewModel = AuthentificationViewModel()
-        let authentificationView = Authentication_Phone()
+        let authentificationView = AuthenticationPhoneViewController()
         authentificationView.viewModel = authentificationViewModel
         authentificationView.modalTransitionStyle = .coverVertical
         authentificationView.modalPresentationStyle = .automatic

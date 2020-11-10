@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
         let mapVC = HomeViewController()
         mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage.add, tag: 0) //STRINGS:
         
-        let listVC = ListNotes()
+        let listVC = ListNotesViewController()
         listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage.actions, tag: 1) //STRINGS:
         
         self.viewControllers = [mapVC, listVC]

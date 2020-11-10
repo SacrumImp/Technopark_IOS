@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class Authentication_Code: UIViewController {
+class AuthenticationCodeViewController: UIViewController {
     
     var viewModel: AuthentificationViewModelProtocol!{
         didSet {
@@ -26,7 +26,7 @@ class Authentication_Code: UIViewController {
         }
     }
     
-    let codeLable: UILabel = {
+    let codeLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
         lable.text = "Код подтверждения" //STRINGS:
         lable.font = .systemFont(ofSize: 30, weight: .bold)
@@ -56,8 +56,8 @@ class Authentication_Code: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        view.addSubview(codeLable)
-        codeLable.center.x = self.view.center.x
+        view.addSubview(codeLabel)
+        codeLabel.center.x = self.view.center.x
         
         view.addSubview(codeTextField)
         codeTextField.center.x = self.view.center.x

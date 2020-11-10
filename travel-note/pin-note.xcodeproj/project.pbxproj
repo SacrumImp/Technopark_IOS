@@ -11,7 +11,7 @@
 		201690792554C4BE00330227 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201690782554C4BE00330227 /* ViewModel.swift */; };
 		204428AF254DBE4500E05E9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 204428AE254DBE4500E05E9D /* GoogleService-Info.plist */; };
 		204428D0254E105B00E05E9D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428CF254E105B00E05E9D /* TabBarController.swift */; };
-		204428D5254E111700E05E9D /* ListNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428D4254E111700E05E9D /* ListNotes.swift */; };
+		204428D5254E111700E05E9D /* ListNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428D4254E111700E05E9D /* ListNotesViewController.swift */; };
 		20591BA7254736A90079C730 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20591BA6254736A90079C730 /* Main.storyboard */; };
 		20666087255976A300C963B9 /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20666086255976A300C963B9 /* API.plist */; };
 		206E9722253B7B5A00A16B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9721253B7B5A00A16B65 /* AppDelegate.swift */; };
@@ -54,20 +54,20 @@
 		201690782554C4BE00330227 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		204428AE254DBE4500E05E9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		204428CF254E105B00E05E9D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		204428D4254E111700E05E9D /* ListNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotes.swift; sourceTree = "<group>"; };
+		204428D4254E111700E05E9D /* ListNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesViewController.swift; sourceTree = "<group>"; };
 		20591BA6254736A90079C730 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		20666086255976A300C963B9 /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
-		206E971E253B7B5A00A16B65 /* travel-note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travel-note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		206E971E253B7B5A00A16B65 /* pin-note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pin-note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E9721253B7B5A00A16B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		206E9723253B7B5A00A16B65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		206E9725253B7B5A00A16B65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		206E972A253B7B5C00A16B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		206E972D253B7B5C00A16B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		206E972F253B7B5C00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		206E9734253B7B5D00A16B65 /* travel-noteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travel-noteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		206E9734253B7B5D00A16B65 /* pin-noteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pin-noteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E9738253B7B5D00A16B65 /* travel_noteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_noteTests.swift; sourceTree = "<group>"; };
 		206E973A253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		206E973F253B7B5D00A16B65 /* travel-noteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travel-noteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		206E973F253B7B5D00A16B65 /* pin-noteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pin-noteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_noteUITests.swift; sourceTree = "<group>"; };
 		206E9745253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20BA4A2F2541DAB6004DEF97 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +132,9 @@
 		206E9715253B7B5A00A16B65 = {
 			isa = PBXGroup;
 			children = (
-				206E9720253B7B5A00A16B65 /* travel-note */,
-				206E9737253B7B5D00A16B65 /* travel-noteTests */,
-				206E9742253B7B5D00A16B65 /* travel-noteUITests */,
+				206E9720253B7B5A00A16B65 /* pin-note */,
+				206E9737253B7B5D00A16B65 /* pin-noteTests */,
+				206E9742253B7B5D00A16B65 /* pin-noteUITests */,
 				206E971F253B7B5A00A16B65 /* Products */,
 				2AE7C7E2FE539C651F1E97D1 /* Pods */,
 				9655052D998F304F9A971334 /* Frameworks */,
@@ -144,14 +144,14 @@
 		206E971F253B7B5A00A16B65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				206E971E253B7B5A00A16B65 /* travel-note.app */,
-				206E9734253B7B5D00A16B65 /* travel-noteTests.xctest */,
-				206E973F253B7B5D00A16B65 /* travel-noteUITests.xctest */,
+				206E971E253B7B5A00A16B65 /* pin-note.app */,
+				206E9734253B7B5D00A16B65 /* pin-noteTests.xctest */,
+				206E973F253B7B5D00A16B65 /* pin-noteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		206E9720253B7B5A00A16B65 /* travel-note */ = {
+		206E9720253B7B5A00A16B65 /* pin-note */ = {
 			isa = PBXGroup;
 			children = (
 				2066608E2559779B00C963B9 /* Resources */,
@@ -166,27 +166,27 @@
 				204428AE254DBE4500E05E9D /* GoogleService-Info.plist */,
 				9211F11E2546F8B800E3BD16 /* HomeViewController.swift */,
 				204428CF254E105B00E05E9D /* TabBarController.swift */,
-				204428D4254E111700E05E9D /* ListNotes.swift */,
+				204428D4254E111700E05E9D /* ListNotesViewController.swift */,
 			);
-			path = "travel-note";
+			path = "pin-note";
 			sourceTree = "<group>";
 		};
-		206E9737253B7B5D00A16B65 /* travel-noteTests */ = {
+		206E9737253B7B5D00A16B65 /* pin-noteTests */ = {
 			isa = PBXGroup;
 			children = (
 				206E9738253B7B5D00A16B65 /* travel_noteTests.swift */,
 				206E973A253B7B5D00A16B65 /* Info.plist */,
 			);
-			path = "travel-noteTests";
+			path = "pin-noteTests";
 			sourceTree = "<group>";
 		};
-		206E9742253B7B5D00A16B65 /* travel-noteUITests */ = {
+		206E9742253B7B5D00A16B65 /* pin-noteUITests */ = {
 			isa = PBXGroup;
 			children = (
 				206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */,
 				206E9745253B7B5D00A16B65 /* Info.plist */,
 			);
-			path = "travel-noteUITests";
+			path = "pin-noteUITests";
 			sourceTree = "<group>";
 		};
 		2AE7C7E2FE539C651F1E97D1 /* Pods */ = {
@@ -219,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		206E971D253B7B5A00A16B65 /* travel-note */ = {
+		206E971D253B7B5A00A16B65 /* pin-note */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 206E9748253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-note" */;
+			buildConfigurationList = 206E9748253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-note" */;
 			buildPhases = (
 				3FD8230AF79D5101F344EEA1 /* [CP] Check Pods Manifest.lock */,
 				206E971A253B7B5A00A16B65 /* Sources */,
@@ -235,14 +235,14 @@
 			);
 			dependencies = (
 			);
-			name = "travel-note";
+			name = "pin-note";
 			productName = "travel-note";
-			productReference = 206E971E253B7B5A00A16B65 /* travel-note.app */;
+			productReference = 206E971E253B7B5A00A16B65 /* pin-note.app */;
 			productType = "com.apple.product-type.application";
 		};
-		206E9733253B7B5D00A16B65 /* travel-noteTests */ = {
+		206E9733253B7B5D00A16B65 /* pin-noteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 206E974B253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-noteTests" */;
+			buildConfigurationList = 206E974B253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-noteTests" */;
 			buildPhases = (
 				C5C04669E12776ABEC934980 /* [CP] Check Pods Manifest.lock */,
 				206E9730253B7B5D00A16B65 /* Sources */,
@@ -255,14 +255,14 @@
 			dependencies = (
 				206E9736253B7B5D00A16B65 /* PBXTargetDependency */,
 			);
-			name = "travel-noteTests";
+			name = "pin-noteTests";
 			productName = "travel-noteTests";
-			productReference = 206E9734253B7B5D00A16B65 /* travel-noteTests.xctest */;
+			productReference = 206E9734253B7B5D00A16B65 /* pin-noteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		206E973E253B7B5D00A16B65 /* travel-noteUITests */ = {
+		206E973E253B7B5D00A16B65 /* pin-noteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 206E974E253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-noteUITests" */;
+			buildConfigurationList = 206E974E253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-noteUITests" */;
 			buildPhases = (
 				CD05AB1A7F5E6B6F2BE292F4 /* [CP] Check Pods Manifest.lock */,
 				206E973B253B7B5D00A16B65 /* Sources */,
@@ -276,9 +276,9 @@
 			dependencies = (
 				206E9741253B7B5D00A16B65 /* PBXTargetDependency */,
 			);
-			name = "travel-noteUITests";
+			name = "pin-noteUITests";
 			productName = "travel-noteUITests";
-			productReference = 206E973F253B7B5D00A16B65 /* travel-noteUITests.xctest */;
+			productReference = 206E973F253B7B5D00A16B65 /* pin-noteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -303,7 +303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 206E9719253B7B5A00A16B65 /* Build configuration list for PBXProject "travel-note" */;
+			buildConfigurationList = 206E9719253B7B5A00A16B65 /* Build configuration list for PBXProject "pin-note" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -316,9 +316,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				206E971D253B7B5A00A16B65 /* travel-note */,
-				206E9733253B7B5D00A16B65 /* travel-noteTests */,
-				206E973E253B7B5D00A16B65 /* travel-noteUITests */,
+				206E971D253B7B5A00A16B65 /* pin-note */,
+				206E9733253B7B5D00A16B65 /* pin-noteTests */,
+				206E973E253B7B5D00A16B65 /* pin-noteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -535,7 +535,7 @@
 				204428D0254E105B00E05E9D /* TabBarController.swift in Sources */,
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
 				9211F11F2546F8B800E3BD16 /* HomeViewController.swift in Sources */,
-				204428D5254E111700E05E9D /* ListNotes.swift in Sources */,
+				204428D5254E111700E05E9D /* ListNotesViewController.swift in Sources */,
 				20E531C425424B1F0038453E /* PhoneView.swift in Sources */,
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
 				201690792554C4BE00330227 /* ViewModel.swift in Sources */,
@@ -563,12 +563,12 @@
 /* Begin PBXTargetDependency section */
 		206E9736253B7B5D00A16B65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 206E971D253B7B5A00A16B65 /* travel-note */;
+			target = 206E971D253B7B5A00A16B65 /* pin-note */;
 			targetProxy = 206E9735253B7B5D00A16B65 /* PBXContainerItemProxy */;
 		};
 		206E9741253B7B5D00A16B65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 206E971D253B7B5A00A16B65 /* travel-note */;
+			target = 206E971D253B7B5A00A16B65 /* pin-note */;
 			targetProxy = 206E9740253B7B5D00A16B65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -636,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -691,7 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -711,12 +711,13 @@
 				DEVELOPMENT_TEAM = C94TG9NQWN;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "travel-note/Info.plist";
+				INFOPLIST_FILE = "pin-note/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Travel-Note.travel-note";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Pin-Note.pin-note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -733,12 +734,13 @@
 				DEVELOPMENT_TEAM = C94TG9NQWN;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "travel-note/Info.plist";
+				INFOPLIST_FILE = "pin-note/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Travel-Note.travel-note";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Pin-Note.pin-note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -763,7 +765,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travel-note.app/travel-note";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pin-note.app/pin-note";
 			};
 			name = Debug;
 		};
@@ -785,7 +787,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travel-note.app/travel-note";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pin-note.app/pin-note";
 			};
 			name = Release;
 		};
@@ -832,7 +834,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		206E9719253B7B5A00A16B65 /* Build configuration list for PBXProject "travel-note" */ = {
+		206E9719253B7B5A00A16B65 /* Build configuration list for PBXProject "pin-note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				206E9746253B7B5D00A16B65 /* Debug */,
@@ -841,7 +843,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		206E9748253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-note" */ = {
+		206E9748253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				206E9749253B7B5D00A16B65 /* Debug */,
@@ -850,7 +852,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		206E974B253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-noteTests" */ = {
+		206E974B253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-noteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				206E974C253B7B5D00A16B65 /* Debug */,
@@ -859,7 +861,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		206E974E253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "travel-noteUITests" */ = {
+		206E974E253B7B5D00A16B65 /* Build configuration list for PBXNativeTarget "pin-noteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				206E974F253B7B5D00A16B65 /* Debug */,
