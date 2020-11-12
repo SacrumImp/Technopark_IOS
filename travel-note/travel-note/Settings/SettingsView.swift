@@ -38,12 +38,14 @@ class SettingsView: UIViewController {
     func configureUI() {
         configureTableView()
         
-        // следующиее почему то не хочет работать (
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1)
         navigationItem.title = "Настройки"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Закрыть", style: .plain, target: self, action: #selector(dismissSelf))
+    }
+    @objc func dismissSelf() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -66,7 +68,7 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         
-        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
         
         let title  = UILabel()
         title.font = UIFont.boldSystemFont(ofSize: 16)
@@ -80,10 +82,12 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         return view
     }
     
+    // высота секции
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 40
     }
     
+    // заполнение ячеек
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
     
@@ -107,6 +111,46 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         
         
         return cell
+    }
+    
+    // обрабатываем выбор ячейки
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // плавно убираем анимацию выделения ячейки
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // получаем ячейку
+        guard let cell = tableView.cellForRow(at: indexPath) else {return}
+        // получаем секцию
+        guard let section = SettingsSection(rawValue: indexPath.section) else {return}
+        
+        
+        switch section {
+        case .Auth:
+            print("tapped in auth section")
+            let cellText = cell.textLabel?.text
+            //Определяем авторизованны мы или нет по заголовку ячейки
+            if cellText == AuthSection.logIn.description {
+                //dismiss(animated: true, completion: nil)
+                let authentificationViewModel = AuthentificationViewModel()
+                let authentificationView = Authentication_Phone()
+                authentificationView.viewModel = authentificationViewModel
+                authentificationView.modalTransitionStyle = .coverVertical
+                authentificationView.modalPresentationStyle = .automatic
+                self.present(authentificationView, animated: true)
+            } else if cellText == AuthSection.logOut.description {
+                do{
+                    try FirebaseAuth.Auth.auth().signOut()
+                }
+                catch{
+                    print("Error sign out") //STRINGS:
+                }
+                print("Signed out")
+                cell.textLabel?.text = AuthSection.logIn.description
+            }
+        case .Other:
+            print("tapped in other section")
+        }
+        
     }
     
     
