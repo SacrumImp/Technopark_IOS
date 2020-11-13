@@ -164,6 +164,11 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
             }
         case .Main:
             print("tapped in main section")
+            let cellText = cell.textLabel?.text
+            if cellText == MainSection.firstScreen.description {
+                let vc = FirstScreenViewController()
+                navigationController?.pushViewController(vc, animated: true)
+            }
         case .Conf:
             print("tapped in conf section")
         case .DataControl:
