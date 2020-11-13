@@ -28,6 +28,8 @@
 		92B3668A255A902B0015B94E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36689255A902B0015B94E /* SettingsView.swift */; };
 		92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36691255A903C0015B94E /* SettingsViewModel.swift */; };
 		92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B366A6255AA8250015B94E /* SettingsModel.swift */; };
+		92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B75C52255E611900594BEC /* FirstScreenViewController.swift */; };
+		92B75C5B255E6D8F00594BEC /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B75C5A255E6D8F00594BEC /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		92B36689255A902B0015B94E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		92B36691255A903C0015B94E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		92B366A6255AA8250015B94E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		92B75C52255E611900594BEC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
+		92B75C5A255E6D8F00594BEC /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B0F993FE509EC7BBAB4D4C5B /* Pods-travel-note-travel-noteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note-travel-noteUITests.debug.xcconfig"; path = "Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_note_travel_noteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +156,7 @@
 			children = (
 				92B3667D255A8CEA0015B94E /* Settings */,
 				2016905B2554C19000330227 /* Authentication */,
+				92B75C5A255E6D8F00594BEC /* Common.swift */,
 				206E9721253B7B5A00A16B65 /* AppDelegate.swift */,
 				206E9723253B7B5A00A16B65 /* SceneDelegate.swift */,
 				206E9725253B7B5A00A16B65 /* ViewController.swift */,
@@ -201,11 +206,20 @@
 		92B3667D255A8CEA0015B94E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				92B75C51255E603900594BEC /* MainSection */,
 				92B36689255A902B0015B94E /* SettingsView.swift */,
 				92B36691255A903C0015B94E /* SettingsViewModel.swift */,
 				92B366A6255AA8250015B94E /* SettingsModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		92B75C51255E603900594BEC /* MainSection */ = {
+			isa = PBXGroup;
+			children = (
+				92B75C52255E611900594BEC /* FirstScreenViewController.swift */,
+			);
+			path = MainSection;
 			sourceTree = "<group>";
 		};
 		9655052D998F304F9A971334 /* Frameworks */ = {
@@ -545,7 +559,9 @@
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
 				201690792554C4BE00330227 /* ViewModel.swift in Sources */,
 				92B3668A255A902B0015B94E /* SettingsView.swift in Sources */,
+				92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */,
 				92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */,
+				92B75C5B255E6D8F00594BEC /* Common.swift in Sources */,
 				92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
