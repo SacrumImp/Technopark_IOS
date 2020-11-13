@@ -33,6 +33,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return button
     }()
     
+    // перед появлением определяем на какой странице будет открыт tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.selectedIndex = Common.Settings.StartingHomePage
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
