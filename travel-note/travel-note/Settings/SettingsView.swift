@@ -10,6 +10,7 @@ import FirebaseAuth
 
 private let reuseIdentifier = "SettingsCell"
 
+// MARK: Контроллер
 class SettingsView: UIViewController {
     
     
@@ -49,6 +50,7 @@ class SettingsView: UIViewController {
     }
 }
 
+// MARK: Расширение
 extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,10 +63,14 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case .Auth: return 1
-        case .Other: return OtherSection.allCases.count
+        case .Main: return MainSection.allCases.count
+        case .Conf: return ConfidentialitySection.allCases.count
+        case .DataControl: return DataControlSection.allCases.count
+        case .Info: return InfoSection.allCases.count
         }
     }
     
+    // представление заголовка секции
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         
@@ -82,12 +88,12 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         return view
     }
     
-    // высота секции
+    // ВЫСОТА ЗАГОЛОВКА СЕКЦИИ
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 40
+            return 35
     }
     
-    // заполнение ячеек
+    // ЗАПОЛНЕНИЕ ЯЧЕЕК
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
     
@@ -104,16 +110,25 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
                 }
             }()
             cell.textLabel?.text = cellText
-        case .Other:
-            let other = OtherSection(rawValue: indexPath.row)
-            cell.textLabel?.text = other?.description
+        case .Main:
+            let cellText = MainSection(rawValue: indexPath.row)
+            cell.textLabel?.text = cellText?.description
+        case .Conf:
+            let cellText = ConfidentialitySection(rawValue: indexPath.row)
+            cell.textLabel?.text = cellText?.description
+        case .DataControl:
+            let cellText = DataControlSection(rawValue: indexPath.row)
+            cell.textLabel?.text = cellText?.description
+        case .Info:
+            let cellText = InfoSection(rawValue: indexPath.row)
+            cell.textLabel?.text = cellText?.description
         }
         
         
         return cell
     }
     
-    // обрабатываем выбор ячейки
+    // ОБРАБАТЫВАЕМ ВЫБОР ЯЧЕЙКИ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // плавно убираем анимацию выделения ячейки
         tableView.deselectRow(at: indexPath, animated: true)
@@ -147,8 +162,14 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
                 print("Signed out")
                 cell.textLabel?.text = AuthSection.logIn.description
             }
-        case .Other:
-            print("tapped in other section")
+        case .Main:
+            print("tapped in main section")
+        case .Conf:
+            print("tapped in conf section")
+        case .DataControl:
+            print("tapped in data control section")
+        case .Info:
+            print("tapped in info section")
         }
         
     }

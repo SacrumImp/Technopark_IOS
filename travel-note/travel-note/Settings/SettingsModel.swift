@@ -23,19 +23,26 @@ class SettingsCell: UITableViewCell {
     
 }
 
-
+// перечисление секций Настроек
 enum SettingsSection: Int, CaseIterable, CustomStringConvertible {
     case Auth
-    case Other
+    case Main
+    case Conf
+    case DataControl
+    case Info
     
     var description: String {
         switch self {
         case .Auth: return "Авторизация"
-        case .Other: return "Остальное"
+        case .Main: return "Остальное"
+        case .Conf: return "Безопасность"
+        case .DataControl: return "Управление данными"
+        case .Info: return "Информация"
         }
     }
 }
 
+// пункты в секции "Авторизация"
 enum AuthSection: Int, CaseIterable, CustomStringConvertible {
     case logIn
     case logOut
@@ -48,16 +55,56 @@ enum AuthSection: Int, CaseIterable, CustomStringConvertible {
     }
 }
 
-enum OtherSection: Int, CaseIterable, CustomStringConvertible {
-    case some1
-    case some2
-    case some3
+// пункты в секции "Отновное"
+enum MainSection: Int, CaseIterable, CustomStringConvertible {
+    case theme
+    case firstScreen
+    case other
     
     var description: String {
         switch self {
-        case .some1: return "Остальное 1"
-        case .some2: return "Остальное 2"
-        case .some3: return "Остальное 3"
+        case .theme: return "Тема"
+        case .firstScreen: return "Начальный экран"
+        case .other: return "Другое"
+        }
+    }
+}
+
+// пункты в секции "Безопасность"
+enum ConfidentialitySection: Int, CaseIterable, CustomStringConvertible {
+    case password
+    case changePassword
+    
+    var description: String {
+        switch self {
+        case .password: return "Защита паролем"
+        case .changePassword: return "Изменение пароля"
+        }
+    }
+}
+
+// пункты в секции "Управление данными"
+enum DataControlSection: Int, CaseIterable, CustomStringConvertible {
+    case password
+    case changePassword
+    
+    var description: String {
+        switch self {
+        case .password: return "Защита паролем"
+        case .changePassword: return "Изменение пароля"
+        }
+    }
+}
+
+// пункты в секции "Информация"
+enum InfoSection: Int, CaseIterable, CustomStringConvertible {
+    case about
+    case feedBack
+    
+    var description: String {
+        switch self {
+        case .about: return "О PinNote"
+        case .feedBack: return "Обратная связь"
         }
     }
 }
