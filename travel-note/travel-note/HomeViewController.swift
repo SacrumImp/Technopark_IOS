@@ -10,7 +10,9 @@ import FirebaseAuth
 import GoogleMaps
 import QuartzCore
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+    
+    // MARK: Properties
     
     let locationManager = CLLocationManager()
     
@@ -49,7 +51,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
-        view.addSubview(getMapView())
+        var mapView = getMapView()
+        view.addSubview(mapView)
         
         view.addSubview(lableVC)
         lableVC.center.x = self.view.center.x
@@ -59,6 +62,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // MARK: Methods
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else {return}
@@ -72,6 +76,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        mapView.delegate = self
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -81,22 +86,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return mapView
     }
     
+    // MARK: GMSMapViewDelegate
+
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        // закоментированно, так как засоряет консоль
+        //print("You get into 'didChange' section")
+        UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            self.lableVC.transform = CGAffineTransform(translationX: 0, y: -90)
+            self.testSettingsButton.transform = CGAffineTransform(translationX: 140, y: 0)
+        })
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        print("You get into 'idleAt' section")
+        UIView.animate(withDuration: 1.5, delay: 0.5, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            //self.lableVC.transform = self.lableVC.transform.translatedBy(x: 0, y: 50)
+            self.lableVC.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.testSettingsButton.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+    }
+    
+    
+    // MARK: Buttons
     @objc func openSettings(sender: UIButton) {
         let settingsView = SettingsView()
         let navVC = UINavigationController(rootViewController: settingsView)
         navVC.modalTransitionStyle = .crossDissolve
         navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true)
-    }
-    
-    // оставлю пока следующее:
-    func startAuth() {
-        let authentificationViewModel = AuthentificationViewModel()
-        let authentificationView = Authentication_Phone()
-        authentificationView.viewModel = authentificationViewModel
-        authentificationView.modalTransitionStyle = .coverVertical
-        authentificationView.modalPresentationStyle = .automatic
-        self.present(authentificationView, animated: true)
     }
 
 }
