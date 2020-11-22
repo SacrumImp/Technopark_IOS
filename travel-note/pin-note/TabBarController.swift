@@ -12,7 +12,9 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapVC = HomeViewController()
+        let mapVC = MapViewController()
+        let mapVCViewModel = MapViewModel()
+        mapVC.viewModel = mapVCViewModel
         mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage.add, tag: 0) //STRINGS:
         
         let listVC = ListNotesViewController()

@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import GoogleMaps
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     

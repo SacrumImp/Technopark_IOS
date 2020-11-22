@@ -34,7 +34,7 @@ class AuthenticationCodeViewController: UIViewController {
         return lable
     }()
     
-    let enterCodeButton: UIButton! = {
+    let enterCodeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 120, width: 300, height: 100))
         button.setTitle("Подтвердить", for: .normal) //STRINGS:
         button.setTitleColor(UIColor.blue, for: .normal)
