@@ -41,8 +41,8 @@ class ListNotesViewController: UIViewController {
         view.addSubview(label)
         label.center = self.view.center
         
-        view.addSubview(lableVC)
-        lableVC.center.x = self.view.center.x
+        view.addSubview(labelVC)
+        labelVC.center.x = self.view.center.x
         
         view.addSubview(testSettingsButton)
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
