@@ -20,8 +20,12 @@ class AuthenticationCodeViewController: UIViewController {
                 self?.present(error, animated: true, completion: nil)
             }
             viewModel.successDidChange = { [weak self] viewModel in
-                self?.modalTransitionStyle = .coverVertical
-                self?.dismiss(animated: true, completion: nil)
+                self.modalTransitionStyle = .coverVertical
+                self.dismiss(animated: true, completion: nil)
+                let viewController = TabBarController()
+                viewController.modalTransitionStyle = .crossDissolve
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true)
             }
         }
     }
