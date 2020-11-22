@@ -45,20 +45,29 @@ class ViewController: UIViewController {
     }
     
     private func animate() {
-        UIView.animate(withDuration: 1, animations: {
-            let size = self.view.frame.size.width * 3
-            let diffX = size - self.view.frame.size.width
-            let diffY = self.view.frame.size.height - size
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
+            self.imageViewText.alpha = 0
             
-            self.imageViewLogo.frame = CGRect(
-                x: -(diffX/2),
-                y: diffY/2,
-                width: size,
-                height: size
-            )
+        }, completion: { done in
+            if done {
+                UIView.animate(withDuration: 1, delay: 0.3, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    let size = self.view.frame.size.width * 3
+                    let diffX = size - self.view.frame.size.width
+                    let diffY = self.view.frame.size.height - size
+
+                    self.imageViewLogo.frame = CGRect(
+                        x: -(diffX/2),
+                        y: diffY/2,
+                        width: size,
+                        height: size
+                    )
+                    
+                })
+            }
         })
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut,  animations: {
             self.imageViewLogo.alpha = 0
+            
         }, completion: { done in
             if done {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: {
