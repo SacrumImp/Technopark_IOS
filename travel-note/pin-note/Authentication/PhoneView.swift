@@ -6,12 +6,35 @@
 //
 
 import UIKit
-import FirebaseAuth
 import PhoneNumberKit
 
-class Authentication_Phone: UIViewController {
+class AuthenticationPhoneViewController: UIViewController {
     
-    let authLable: UILabel = {
+    var viewModel: AuthentificationViewModelProtocol!{
+        didSet {
+            viewModel.errorDidChange = { [weak self] viewModel in
+                guard let error = viewModel.error else {return}
+                error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
+                    self?.dismiss(animated: true)
+                })) //STRINGS:
+                self?.present(error, animated: true, completion: nil)
+            }
+            viewModel.successDidChange = { [weak self] viewModel in
+                let codeView = AuthenticationCodeViewController()
+                let authentificationViewModel = AuthentificationViewModel()
+                codeView.viewModel = authentificationViewModel
+                codeView.modalTransitionStyle = .flipHorizontal
+                codeView.modalPresentationStyle = .automatic
+                self?.modalTransitionStyle = .flipHorizontal
+                weak var pvc = self?.presentingViewController
+                self?.dismiss(animated: true) {
+                    pvc?.present(codeView, animated: true)
+                }
+            }
+        }
+    }
+    
+    let authLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
         lable.text = "Авторизация" //STRINGS:
         lable.font = .systemFont(ofSize: 30, weight: .bold)
@@ -40,8 +63,8 @@ class Authentication_Phone: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        view.addSubview(authLable)
-        authLable.center.x = self.view.center.x
+        view.addSubview(authLabel)
+        authLabel.center.x = self.view.center.x
         
         view.addSubview(phoneTextField)
         phoneTextField.center.x = self.view.center.x
@@ -49,32 +72,11 @@ class Authentication_Phone: UIViewController {
         view.addSubview(enterPhoneButton)
         enterPhoneButton.center.x = self.view.center.x
         enterPhoneButton.addTarget(self, action: #selector(enterPhone(sender:)), for: .touchUpInside)
-
+        
     }
     
     @objc func enterPhone(sender: UIButton) {
-        
-        guard let sendPhoneNumber = phoneTextField.text else {return}
-        
-        PhoneAuthProvider.provider().verifyPhoneNumber(sendPhoneNumber, uiDelegate: nil) { (verificationID, error) in
-            if error == nil{
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                let codeViewController = Authentication_Code()
-                codeViewController.modalTransitionStyle = .flipHorizontal
-                self.modalTransitionStyle = .flipHorizontal
-                codeViewController.modalPresentationStyle = .automatic
-                weak var pvc = self.presentingViewController
-                self.dismiss(animated: true) {
-                    pvc?.present(codeViewController, animated: true)
-                }
-            }
-            else{
-                let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось отправить СМС", preferredStyle: .alert) //STRINGS:
-                errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    self.dismiss(animated: true)
-                })) //STRINGS:
-                self.present(errorPhone, animated: true, completion: nil)
-            }
-        }
+        guard let phoneNumber = phoneTextField.text else {return}
+        viewModel.sendPhone(phoneNumber: phoneNumber)
     }
 }
