@@ -23,12 +23,16 @@ class TabBarController: UITabBarController {
         let mapVC = MapViewController()
         let mapVCViewModel = MapViewModel()
         mapVC.viewModel = mapVCViewModel
-        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage.add, tag: 0) //STRINGS:
+        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(systemName: "map"), tag: 0) //STRINGS:
+
         
         let listVC = ListNotesViewController()
-        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage.actions, tag: 1) //STRINGS:
+        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(systemName: "doc.text"), tag: 1) //STRINGS:
+        
         
         self.viewControllers = [mapVC, listVC]
+        
+    
         
     }
     
