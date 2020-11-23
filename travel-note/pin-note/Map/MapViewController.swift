@@ -10,7 +10,9 @@ import FirebaseAuth
 import GoogleMaps
 import QuartzCore
 
-class MapViewController: UIViewController, GMSMapViewDelegate{
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
+    
+    // MARK: Properties
     
     var viewModel: MapViewModelProtocol!{
         didSet{
@@ -26,7 +28,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
     var marker: GMSMarker!
     
     let labelVC: UILabel = {
-        let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
+        let lable = UILabel(frame:CGRect(x: 0, y: 80, width: 130, height: 35))
         lable.text = "MapVC" //STRINGS:
         lable.font = .systemFont(ofSize: 24, weight: .bold)
         lable.textAlignment = .center
@@ -36,7 +38,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
     }()
     
     let testSettingsButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 280, y: 50, width: 120, height: 35))
+        let button = UIButton(frame: CGRect(x: 280, y: 80, width: 120, height: 35))
         button.setTitle("Настройки", for: .normal)
         button.setTitleColor(UIColor.red, for: .normal) //красным чтоб заметно было
         button.layer.backgroundColor = UIColor.systemRed.cgColor.copy(alpha: 0.3)
@@ -56,6 +58,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         viewModel.setLocationService(delegate: viewModel as! GeolocationServiceDelegate)
         
         mapView = getMapView()
+        mapView.delegate = self
         view.addSubview(mapView)
         
         view.addSubview(labelVC)
@@ -65,6 +68,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
         
     }
+    
+    // MARK: Methods
     
     func getMapView() -> GMSMapView{
         
@@ -80,6 +85,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         
         return mapView
     }
+    
+    // MARK: GMSMapViewDelegate
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         // закоментированно, так как засоряет консоль
@@ -101,6 +108,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
     
     
     // MARK: Buttons
+    
     @objc func openSettings(sender: UIButton) {
         let settingsView = SettingsView()
         let navVC = UINavigationController(rootViewController: settingsView)
