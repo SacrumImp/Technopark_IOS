@@ -12,6 +12,7 @@ class Common: NSObject {
         
         // ключи настроек
         private enum SettingKeys: String {
+            case wasTerminated
             case startingHomePage
         }
         
@@ -22,6 +23,15 @@ class Common: NSObject {
             }
             get {
                 return UserDefaults.standard.integer(forKey: SettingKeys.startingHomePage.rawValue)
+            }
+        }
+        // сохраняет с UserDefaults факт закрытия приложения
+        static var WasTerminated: Bool {
+            set {
+                UserDefaults.standard.set(newValue, forKey: SettingKeys.wasTerminated.rawValue)
+            }
+            get {
+                return UserDefaults.standard.bool(forKey: SettingKeys.wasTerminated.rawValue)
             }
         }
     }
