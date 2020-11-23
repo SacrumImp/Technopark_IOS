@@ -8,23 +8,13 @@
 import UIKit
 import FirebaseAuth
 
-class AuthenticationCodeViewController: UIViewController {
+protocol AuthenticationCodeViewControllerProtocol {
+    func sendCode(code: String)
+}
+
+class AuthenticationCodeViewController: UIViewController, AuthenticationCodeViewControllerProtocol {
     
-    var viewModel: AuthentificationViewModelProtocol!{
-        didSet {
-            viewModel.errorDidChange = { [weak self] viewModel in
-                guard let error = viewModel.error else {return}
-                error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    self?.dismiss(animated: true)
-                })) //STRINGS:
-                self?.present(error, animated: true, completion: nil)
-            }
-            viewModel.successDidChange = { [weak self] viewModel in
-                self?.modalTransitionStyle = .coverVertical
-                self?.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
+    var viewModel: AuthentificationViewModelProtocol!
     
     let codeLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
@@ -34,7 +24,7 @@ class AuthenticationCodeViewController: UIViewController {
         return lable
     }()
     
-    let enterCodeButton: UIButton! = {
+    let enterCodeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 120, width: 300, height: 100))
         button.setTitle("Подтвердить", for: .normal) //STRINGS:
         button.setTitleColor(UIColor.blue, for: .normal)
@@ -64,13 +54,33 @@ class AuthenticationCodeViewController: UIViewController {
         
         view.addSubview(enterCodeButton)
         enterCodeButton.center.x = self.view.center.x
-        enterCodeButton.addTarget(self, action: #selector(enterCode(sender:)), for: .touchUpInside)
+        enterCodeButton.addTarget(self, action: #selector(enterCode), for: .touchUpInside)
     }
     
-    @objc func enterCode(sender: UIButton) {
+    @objc
+    func enterCode() {
         
         guard let verificationCode  = codeTextField.text else {return}
-        viewModel.sendCode(code: verificationCode)
+        sendCode(code: verificationCode)
         
+    }
+    
+    func sendCode(code: String) {
+        viewModel.sendCode(code: code, completion: { [weak self] (user, error) in
+            guard let self = self else { return }
+            switch error { //TODO: поработать с ошибками
+                case .noConnection:
+                    let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
+                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in self.dismiss(animated: true)}))
+                default:
+                    break
+            }
+            self.modalTransitionStyle = .coverVertical
+            self.dismiss(animated: true, completion: nil)
+            let viewController = TabBarController()
+            viewController.modalTransitionStyle = .crossDissolve
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true)
+        })
     }
 }

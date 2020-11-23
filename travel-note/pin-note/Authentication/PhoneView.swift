@@ -8,31 +8,13 @@
 import UIKit
 import PhoneNumberKit
 
-class AuthenticationPhoneViewController: UIViewController {
+protocol AuthenticationPhoneViewControllerProtocol {
+    func sendPhone(phoneNumber: String)
+}
+
+class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneViewControllerProtocol {
     
-    var viewModel: AuthentificationViewModelProtocol!{
-        didSet {
-            viewModel.errorDidChange = { [weak self] viewModel in
-                guard let error = viewModel.error else {return}
-                error.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in
-                    self?.dismiss(animated: true)
-                })) //STRINGS:
-                self?.present(error, animated: true, completion: nil)
-            }
-            viewModel.successDidChange = { [weak self] viewModel in
-                let codeView = AuthenticationCodeViewController()
-                let authentificationViewModel = AuthentificationViewModel()
-                codeView.viewModel = authentificationViewModel
-                codeView.modalTransitionStyle = .flipHorizontal
-                codeView.modalPresentationStyle = .automatic
-                self?.modalTransitionStyle = .flipHorizontal
-                weak var pvc = self?.presentingViewController
-                self?.dismiss(animated: true) {
-                    pvc?.present(codeView, animated: true)
-                }
-            }
-        }
-    }
+    var viewModel: AuthentificationViewModelProtocol!
     
     let authLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
@@ -71,12 +53,36 @@ class AuthenticationPhoneViewController: UIViewController {
         
         view.addSubview(enterPhoneButton)
         enterPhoneButton.center.x = self.view.center.x
-        enterPhoneButton.addTarget(self, action: #selector(enterPhone(sender:)), for: .touchUpInside)
+        enterPhoneButton.addTarget(self, action: #selector(enterPhone), for: .touchUpInside)
         
     }
     
-    @objc func enterPhone(sender: UIButton) {
+    @objc
+    func enterPhone() {
         guard let phoneNumber = phoneTextField.text else {return}
-        viewModel.sendPhone(phoneNumber: phoneNumber)
+        sendPhone(phoneNumber: phoneNumber)
+    }
+    
+    func sendPhone(phoneNumber: String) {
+        viewModel.sendPhone(phoneNumber: phoneNumber, completion: { [weak self] (user, error) in
+            guard let self = self else { return }
+            switch error { //TODO: поработать с ошибками
+                case .noConnection:
+                    let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
+                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in self.dismiss(animated: true)}))
+                default:
+                    break
+            }
+            let codeView = AuthenticationCodeViewController()
+            let authentificationViewModel = AuthentificationViewModel()
+            codeView.viewModel = authentificationViewModel
+            codeView.modalTransitionStyle = .flipHorizontal
+            codeView.modalPresentationStyle = .automatic
+            self.modalTransitionStyle = .flipHorizontal
+            weak var pvc = self.presentingViewController
+            self.dismiss(animated: true) {
+                pvc?.present(codeView, animated: true)
+            }
+        })
     }
 }

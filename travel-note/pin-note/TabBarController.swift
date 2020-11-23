@@ -9,16 +9,22 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    // перед появлением определяем на какой странице будет открыт tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        if Common.Settings.WasTerminated == true {
+            self.selectedIndex = Common.Settings.StartingHomePage
+            Common.Settings.WasTerminated = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //tabBar.backgroundColor = UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
-    
-        
-        let mapVC = HomeViewController()
+        let mapVC = MapViewController()
+        let mapVCViewModel = MapViewModel()
+        mapVC.viewModel = mapVCViewModel
         mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(systemName: "map"), tag: 0) //STRINGS:
-        
+
         
         let listVC = ListNotesViewController()
         listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(systemName: "doc.text"), tag: 1) //STRINGS:

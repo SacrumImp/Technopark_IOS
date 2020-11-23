@@ -10,14 +10,27 @@ import FirebaseAuth
 import GoogleMaps
 import QuartzCore
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate{
     
-    let locationManager = CLLocationManager()
+    // MARK: Properties
+    
+    var viewModel: MapViewModelProtocol!{
+        didSet{
+            viewModel.currentLocationDidChange = { [weak self] viewModel in
+                self?.marker.position = CLLocationCoordinate2D(latitude: viewModel.currentLocation.latitude, longitude: viewModel.currentLocation.longitude)
+                let camera = GMSCameraPosition.camera(withTarget: (self?.marker.position)!, zoom: 17.0)
+                self?.mapView.camera = camera
+            }
+        }
+    }
+    
+    var mapView: GMSMapView!
+    var marker: GMSMarker!
     
     let labelVC: UILabel = {
-        let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
+        let lable = UILabel(frame:CGRect(x: 0, y: 80, width: 130, height: 35))
         lable.text = "MapVC" //STRINGS:
-        lable.font = .systemFont(ofSize: 32, weight: .bold)
+        lable.font = .systemFont(ofSize: 24, weight: .bold)
         lable.textAlignment = .center
         lable.layer.backgroundColor = UIColor.systemGreen.cgColor.copy(alpha: 0.3)
         lable.layer.cornerRadius = 10
@@ -25,7 +38,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }()
     
     let testSettingsButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 280, y: 50, width: 120, height: 35))
+        let button = UIButton(frame: CGRect(x: 280, y: 80, width: 120, height: 35))
         button.setTitle("Настройки", for: .normal)
         button.setTitleColor(UIColor.red, for: .normal) //красным чтоб заметно было
         button.layer.backgroundColor = UIColor.systemRed.cgColor.copy(alpha: 0.3)
@@ -42,41 +55,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        locationManager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        viewModel.setLocationService(delegate: viewModel as! GeolocationServiceDelegate)
         
-        var mapView = getMapView()
+        mapView = getMapView()
+        mapView.delegate = self
         view.addSubview(mapView)
         
         view.addSubview(labelVC)
         labelVC.center.x = self.view.center.x
         
         view.addSubview(testSettingsButton)
-        testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)       
+        testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
+        
     }
     
     // MARK: Methods
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else {return}
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        
-    }
     
-    func getMapView() -> UIView{
-        let latitude = 55.75
-        let longitude = 37.62
+    func getMapView() -> GMSMapView{
         
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
+        let location = viewModel.currentLocation
+        
+        let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        mapView.delegate = self
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         marker.title = "Ваше местоположение" //STRINGS:
         marker.map = mapView
         
@@ -84,12 +87,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // MARK: GMSMapViewDelegate
-
+    
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         // закоментированно, так как засоряет консоль
         //print("You get into 'didChange' section")
         UIView.animate(withDuration: 1, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-            self.lableVC.transform = CGAffineTransform(translationX: 0, y: -90)
+            self.labelVC.transform = CGAffineTransform(translationX: 0, y: -90)
             self.testSettingsButton.transform = CGAffineTransform(translationX: 140, y: 0)
         })
     }
@@ -98,13 +101,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("You get into 'idleAt' section")
         UIView.animate(withDuration: 1.5, delay: 0.5, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
             //self.lableVC.transform = self.lableVC.transform.translatedBy(x: 0, y: 50)
-            self.lableVC.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.labelVC.transform = CGAffineTransform(translationX: 0, y: 0)
             self.testSettingsButton.transform = CGAffineTransform(translationX: 0, y: 0)
         })
     }
     
     
     // MARK: Buttons
+    
     @objc func openSettings(sender: UIButton) {
         let settingsView = SettingsView()
         let navVC = UINavigationController(rootViewController: settingsView)
@@ -112,5 +116,4 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true)
     }
-
 }

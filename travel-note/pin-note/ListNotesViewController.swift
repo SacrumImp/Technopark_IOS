@@ -24,6 +24,15 @@ class ListNotesViewController: UIViewController {
         lable.textAlignment = .center
         return lable
     }()
+    
+    let testSettingsButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 280, y: 80, width: 120, height: 35))
+        button.setTitle("Настройки", for: .normal)
+        button.setTitleColor(UIColor.red, for: .normal) //красным чтоб заметно было
+        button.layer.backgroundColor = UIColor.systemRed.cgColor.copy(alpha: 0.3)
+        button.layer.cornerRadius = 8
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +43,17 @@ class ListNotesViewController: UIViewController {
         
         view.addSubview(labelVC)
         labelVC.center.x = self.view.center.x
+        
+        view.addSubview(testSettingsButton)
+        testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func openSettings(sender: UIButton) {
+        let settingsView = SettingsView()
+        let navVC = UINavigationController(rootViewController: settingsView)
+        navVC.modalTransitionStyle = .crossDissolve
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: true)
     }
 
 }

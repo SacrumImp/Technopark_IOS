@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '13.0'
 
-target 'travel-note' do
+target 'pin-note' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for travel-note
+  # Pods for pin-note
   
   #Авторизация
   pod 'Firebase'
@@ -17,13 +17,13 @@ target 'travel-note' do
   #Карты
   pod 'GoogleMaps'
 
-  target 'travel-noteTests' do
+  target 'pin-noteTests' do
     inherit! :search_paths
     pod 'Firebase'
     pod 'Firebase/Auth'
   end
 
-  target 'travel-noteUITests' do
+  target 'pin-noteUITests' do
     pod 'Firebase'
     pod 'Firebase/Auth'
   end
