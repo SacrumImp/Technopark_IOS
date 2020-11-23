@@ -9,6 +9,14 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    // перед появлением определяем на какой странице будет открыт tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        if Common.Settings.WasTerminated == true {
+            self.selectedIndex = Common.Settings.StartingHomePage
+            Common.Settings.WasTerminated = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
