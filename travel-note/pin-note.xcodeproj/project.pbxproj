@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20160D7F2541D2DD00D64BD4 /* Pods_travel_note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128D5E65462DFB7CDCE421E6 /* Pods_travel_note.framework */; };
 		201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201690782554C4BE00330227 /* AuthenticationViewModel.swift */; };
 		204428AF254DBE4500E05E9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 204428AE254DBE4500E05E9D /* GoogleService-Info.plist */; };
 		204428D0254E105B00E05E9D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428CF254E105B00E05E9D /* TabBarController.swift */; };
@@ -26,14 +25,15 @@
 		206E9744253B7B5D00A16B65 /* travel_noteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */; };
 		20E531C425424B1F0038453E /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531C325424B1F0038453E /* PhoneView.swift */; };
 		20E531D82544FD900038453E /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531D72544FD900038453E /* CodeView.swift */; };
-		30F12B953CBDFC85ED4D1BC8 /* Pods_travel_note_travel_noteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */; };
-		872E4ED320677D2FD662E55E /* Pods_travel_noteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B58EFA34FC1CB30A280937E /* Pods_travel_noteTests.framework */; };
+		82A3A62502082274D71A36A8 /* Pods_pin_note_pin_noteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26376A3C59DB5A99B187DD72 /* Pods_pin_note_pin_noteUITests.framework */; };
 		9211F11F2546F8B800E3BD16 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F11E2546F8B800E3BD16 /* MapViewController.swift */; };
 		92B3668A255A902B0015B94E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36689255A902B0015B94E /* SettingsView.swift */; };
 		92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36691255A903C0015B94E /* SettingsViewModel.swift */; };
 		92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B366A6255AA8250015B94E /* SettingsModel.swift */; };
 		92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B75C52255E611900594BEC /* FirstScreenViewController.swift */; };
 		92B75C5B255E6D8F00594BEC /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B75C5A255E6D8F00594BEC /* Common.swift */; };
+		A8DB2765E0143C8EA1DF2969 /* Pods_pin_noteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28724BE51B7B265812916A4 /* Pods_pin_noteTests.framework */; };
+		D2C715867BA63C935B8E9248 /* Pods_pin_note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17588A51AF94E96277C08A2 /* Pods_pin_note.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		02565B63C6502EFDC28359FE /* Pods-travel-note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note.release.xcconfig"; path = "Target Support Files/Pods-travel-note/Pods-travel-note.release.xcconfig"; sourceTree = "<group>"; };
-		128D5E65462DFB7CDCE421E6 /* Pods_travel_note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04135E433A4FC4E6B2A4E977 /* Pods-pin-note-pin-noteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note-pin-noteUITests.debug.xcconfig"; path = "Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		200C81412541D8B200BE2B7D /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		200C814A2541D8E400BE2B7D /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		200C81502541D8EA00BE2B7D /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +84,10 @@
 		20BA4A2F2541DAB6004DEF97 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20E531C325424B1F0038453E /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		20E531D72544FD900038453E /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		23C9E967706C48AD8D2A548B /* Pods-pin-note-pin-noteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note-pin-noteUITests.release.xcconfig"; path = "Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		26376A3C59DB5A99B187DD72 /* Pods_pin_note_pin_noteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pin_note_pin_noteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		286895D8942FB4619326C6B7 /* Pods-travel-noteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-noteTests.debug.xcconfig"; path = "Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B58EFA34FC1CB30A280937E /* Pods_travel_noteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_noteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D11DE1225C80FCEB840E905 /* Pods-pin-noteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-noteTests.release.xcconfig"; path = "Target Support Files/Pods-pin-noteTests/Pods-pin-noteTests.release.xcconfig"; sourceTree = "<group>"; };
 		593298C9550532362A8DCA26 /* Pods-travel-note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note.debug.xcconfig"; path = "Target Support Files/Pods-travel-note/Pods-travel-note.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8E0F08582DE3F2583DCA57 /* Pods-travel-note-travel-noteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note-travel-noteUITests.release.xcconfig"; path = "Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		799CB7C2BA41EE41A1DC075D /* Pods-travel-noteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-noteTests.release.xcconfig"; path = "Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,8 +97,12 @@
 		92B366A6255AA8250015B94E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		92B75C52255E611900594BEC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		92B75C5A255E6D8F00594BEC /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9F7E3297D33C69A10812F211 /* Pods-pin-note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note.release.xcconfig"; path = "Target Support Files/Pods-pin-note/Pods-pin-note.release.xcconfig"; sourceTree = "<group>"; };
 		B0F993FE509EC7BBAB4D4C5B /* Pods-travel-note-travel-noteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travel-note-travel-noteUITests.debug.xcconfig"; path = "Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travel_note_travel_noteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28724BE51B7B265812916A4 /* Pods_pin_noteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pin_noteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA02ADB0DA6B4396EB300321 /* Pods-pin-note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note.debug.xcconfig"; path = "Target Support Files/Pods-pin-note/Pods-pin-note.debug.xcconfig"; sourceTree = "<group>"; };
+		F17588A51AF94E96277C08A2 /* Pods_pin_note.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pin_note.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54FB36487900532BF0FF177 /* Pods-pin-noteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-noteTests.debug.xcconfig"; path = "Target Support Files/Pods-pin-noteTests/Pods-pin-noteTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20160D7F2541D2DD00D64BD4 /* Pods_travel_note.framework in Frameworks */,
+				D2C715867BA63C935B8E9248 /* Pods_pin_note.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				872E4ED320677D2FD662E55E /* Pods_travel_noteTests.framework in Frameworks */,
+				A8DB2765E0143C8EA1DF2969 /* Pods_pin_noteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30F12B953CBDFC85ED4D1BC8 /* Pods_travel_note_travel_noteUITests.framework in Frameworks */,
+				82A3A62502082274D71A36A8 /* Pods_pin_note_pin_noteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +233,12 @@
 				5F8E0F08582DE3F2583DCA57 /* Pods-travel-note-travel-noteUITests.release.xcconfig */,
 				286895D8942FB4619326C6B7 /* Pods-travel-noteTests.debug.xcconfig */,
 				799CB7C2BA41EE41A1DC075D /* Pods-travel-noteTests.release.xcconfig */,
+				DA02ADB0DA6B4396EB300321 /* Pods-pin-note.debug.xcconfig */,
+				9F7E3297D33C69A10812F211 /* Pods-pin-note.release.xcconfig */,
+				04135E433A4FC4E6B2A4E977 /* Pods-pin-note-pin-noteUITests.debug.xcconfig */,
+				23C9E967706C48AD8D2A548B /* Pods-pin-note-pin-noteUITests.release.xcconfig */,
+				F54FB36487900532BF0FF177 /* Pods-pin-noteTests.debug.xcconfig */,
+				2D11DE1225C80FCEB840E905 /* Pods-pin-noteTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,9 +269,9 @@
 				200C81502541D8EA00BE2B7D /* FirebaseAuth.framework */,
 				200C814A2541D8E400BE2B7D /* FirebaseCore.framework */,
 				200C81412541D8B200BE2B7D /* FirebaseAuth.framework */,
-				128D5E65462DFB7CDCE421E6 /* Pods_travel_note.framework */,
-				D17DD4D78D0E071A393BD725 /* Pods_travel_note_travel_noteUITests.framework */,
-				4B58EFA34FC1CB30A280937E /* Pods_travel_noteTests.framework */,
+				F17588A51AF94E96277C08A2 /* Pods_pin_note.framework */,
+				26376A3C59DB5A99B187DD72 /* Pods_pin_note_pin_noteUITests.framework */,
+				B28724BE51B7B265812916A4 /* Pods_pin_noteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,15 +418,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		147614DF9607F484A33DC30B /* [CP] Copy Pods Resources */ = {
@@ -423,15 +435,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		20E531CB2544F8000038453E /* Run Script */ = {
@@ -467,7 +479,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-travel-note-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-pin-note-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -489,7 +501,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-travel-noteTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-pin-noteTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -511,7 +523,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-travel-note-travel-noteUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-pin-note-pin-noteUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,15 +536,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note/Pods-travel-note-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pin-note/Pods-pin-note-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3760C37AE1E3022DF2AD38C /* [CP] Embed Pods Frameworks */ = {
@@ -541,15 +553,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-noteTests/Pods-pin-noteTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-noteTests/Pods-pin-noteTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-noteTests/Pods-travel-noteTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pin-noteTests/Pods-pin-noteTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F01DAE97CD4A2BD616B5686D /* [CP] Embed Pods Frameworks */ = {
@@ -558,15 +570,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travel-note-travel-noteUITests/Pods-travel-note-travel-noteUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -760,7 +772,7 @@
 		};
 		206E9749253B7B5D00A16B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 593298C9550532362A8DCA26 /* Pods-travel-note.debug.xcconfig */;
+			baseConfigurationReference = DA02ADB0DA6B4396EB300321 /* Pods-pin-note.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -783,7 +795,7 @@
 		};
 		206E974A253B7B5D00A16B65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02565B63C6502EFDC28359FE /* Pods-travel-note.release.xcconfig */;
+			baseConfigurationReference = 9F7E3297D33C69A10812F211 /* Pods-pin-note.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -806,7 +818,7 @@
 		};
 		206E974C253B7B5D00A16B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 286895D8942FB4619326C6B7 /* Pods-travel-noteTests.debug.xcconfig */;
+			baseConfigurationReference = F54FB36487900532BF0FF177 /* Pods-pin-noteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -828,7 +840,7 @@
 		};
 		206E974D253B7B5D00A16B65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 799CB7C2BA41EE41A1DC075D /* Pods-travel-noteTests.release.xcconfig */;
+			baseConfigurationReference = 2D11DE1225C80FCEB840E905 /* Pods-pin-noteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -850,7 +862,7 @@
 		};
 		206E974F253B7B5D00A16B65 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0F993FE509EC7BBAB4D4C5B /* Pods-travel-note-travel-noteUITests.debug.xcconfig */;
+			baseConfigurationReference = 04135E433A4FC4E6B2A4E977 /* Pods-pin-note-pin-noteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -870,7 +882,7 @@
 		};
 		206E9750253B7B5D00A16B65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F8E0F08582DE3F2583DCA57 /* Pods-travel-note-travel-noteUITests.release.xcconfig */;
+			baseConfigurationReference = 23C9E967706C48AD8D2A548B /* Pods-pin-note-pin-noteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
