@@ -7,13 +7,21 @@
 
 protocol MapViewModelProtocol: class{
     
-    func getLocation() -> Location
+    func setLocationService(delegate: GeolocationServiceDelegate)
+    
+    var currentLocation: Location {get}
+    var currentLocationDidChange: ((MapViewModelProtocol) -> ())? { get set }
     
 }
 
 class MapViewModel: MapViewModelProtocol{
-    
-    var currentLocation: Location
+        
+    var currentLocation: Location {
+        didSet {
+            self.currentLocationDidChange?(self)
+        }
+    }
+    var currentLocationDidChange: ((MapViewModelProtocol) -> ())?
     
     var GEOService: GeolocationService!
     
@@ -21,8 +29,8 @@ class MapViewModel: MapViewModelProtocol{
         self.currentLocation = Location(latitude: 55.75, longitude: 37.62)
     }
     
-    func getLocation() -> Location {
-        return self.currentLocation
+    func setLocationService(delegate: GeolocationServiceDelegate) {
+        self.GEOService = GeolocationService(delegate: delegate)
     }
     
 }

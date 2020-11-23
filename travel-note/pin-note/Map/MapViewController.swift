@@ -12,7 +12,18 @@ import QuartzCore
 
 class MapViewController: UIViewController, GMSMapViewDelegate{
     
-    var viewModel: MapViewModelProtocol!{didSet{}}
+    var viewModel: MapViewModelProtocol!{
+        didSet{
+            viewModel.currentLocationDidChange = { [weak self] viewModel in
+                self?.marker.position = CLLocationCoordinate2D(latitude: viewModel.currentLocation.latitude, longitude: viewModel.currentLocation.longitude)
+                let camera = GMSCameraPosition.camera(withTarget: (self?.marker.position)!, zoom: 17.0)
+                self?.mapView.camera = camera
+            }
+        }
+    }
+    
+    var mapView: GMSMapView!
+    var marker: GMSMarker!
     
     let labelVC: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
@@ -38,13 +49,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         self.tabBarController?.selectedIndex = Common.Settings.StartingHomePage
     }
     
-    let locationManager = CLLocationManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        let mapView = getMapView()
+        viewModel.setLocationService(delegate: viewModel as! GeolocationServiceDelegate)
+        
+        mapView = getMapView()
         view.addSubview(mapView)
         
         view.addSubview(labelVC)
@@ -55,14 +66,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate{
         
     }
     
-    func getMapView() -> UIView{
+    func getMapView() -> GMSMapView{
         
-        let location = viewModel.getLocation()
+        let location = viewModel.currentLocation
         
         let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         
-        let marker = GMSMarker()
+        marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         marker.title = "Ваше местоположение" //STRINGS:
         marker.map = mapView

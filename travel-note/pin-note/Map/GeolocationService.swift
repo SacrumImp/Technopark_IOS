@@ -32,7 +32,7 @@ class GeolocationService: NSObject {
            locationManager.desiredAccuracy = kCLLocationAccuracyBest
            locationManager.requestWhenInUseAuthorization()
            locationManager.requestLocation()
-           //locationManager.startUpdatingLocation()
+           locationManager.startUpdatingLocation()
         }
     }
 
