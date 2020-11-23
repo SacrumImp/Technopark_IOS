@@ -6,66 +6,50 @@
 //
 
 import UIKit
-import FirebaseAuth
+
+enum ViewErrors {
+    case noConnection
+}
 
 protocol AuthentificationViewModelProtocol: class {
     
-    var error: UIAlertController? {get}
-    var errorDidChange: ((AuthentificationViewModelProtocol) -> ())? { get set }
-    
-    var success: Bool? {get}
-    var successDidChange: ((AuthentificationViewModelProtocol) -> ())? { get set }
-    
-    func sendPhone(phoneNumber: String)
-    func sendCode(code: String)
+    func sendPhone(phoneNumber: String, completion: @escaping (User?, ViewErrors?) -> Void)
+    func sendCode(code: String, completion: @escaping (User?, ViewErrors?) -> Void)
     
 }
 
 class AuthentificationViewModel: AuthentificationViewModelProtocol {
     
-    var success: Bool? {
-        didSet{
-            self.successDidChange?(self)
-        }
-    }
-    var successDidChange: ((AuthentificationViewModelProtocol) -> ())?
+    var user: User?
+    var authPocessorProtocol: AuthProccessorProtocol!
     
-    var error: UIAlertController? {
-        didSet{
-            self.errorDidChange?(self)
-        }
-    }
-    var errorDidChange: ((AuthentificationViewModelProtocol) -> ())?
-    
-    
-    func sendPhone(phoneNumber: String) {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
-            if error == nil{
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                self.success = true
+    func sendPhone(phoneNumber: String, completion: @escaping (User?, ViewErrors?) -> Void) {
+        authPocessorProtocol = AuthProccessor()
+        authPocessorProtocol.sendPhone(phoneNumber: phoneNumber, completion: { [weak self] (user, error) in
+            
+            guard let self = self else { return }
+            
+            if error != nil{ //TODO: поработать с ошибками
+                completion(nil, .noConnection)
             }
-            else{
-                let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось отправить СМС", preferredStyle: .alert) //STRINGS:
-                self.error = errorPhone
-            }
-        }
+            
+            self.user = user
+            completion(user, nil)
+        })
     }
     
-    func sendCode(code: String) {
-        guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else { return }
-        
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
-        
-        Auth.auth().signIn(with: credential) { (success, error) in
-            if error == nil{
-                print("User is signed in")
-                self.success = true
+    func sendCode(code: String, completion: @escaping (User?, ViewErrors?) -> Void) {
+        authPocessorProtocol = AuthProccessor()
+        authPocessorProtocol.sendCode(code: code, completion: { [weak self] (user, error) in
+            guard let self = self else { return }
+            
+            if error != nil{ //TODO: поработать с ошибками
+                completion(nil, .noConnection)
             }
-            else{
-                let errorCode = UIAlertController(title: "Ошибка", message: "Код из СМС не совпадает", preferredStyle: .alert) //STRINGS:
-                self.error = errorCode
-            }
-        }
+            
+            self.user = user
+            completion(user, nil)
+        })
     }
     
     
