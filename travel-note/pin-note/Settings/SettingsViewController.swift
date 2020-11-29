@@ -94,7 +94,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     // ЗАПОЛНЕНИЕ ЯЧЕЕК
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell else {return UITableViewCell()}
     
         guard let section = SettingsSection(rawValue: indexPath.section) else {return UITableViewCell()}
         
