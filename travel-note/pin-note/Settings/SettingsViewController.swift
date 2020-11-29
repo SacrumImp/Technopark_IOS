@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
         tableView.rowHeight = 60
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
+        tableView.register(SettingsTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: "SettingsSectionHeader")
         view.addSubview(tableView)
         tableView.frame = view.frame
         
@@ -49,6 +50,33 @@ class SettingsViewController: UIViewController {
     }
 }
 
+final class SettingsTableViewSectionHeader: UITableViewHeaderFooterView {
+    static let reuseIdentifier: String = String(describing: self)
+    
+    private let headerLabel = UILabel()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(headerLabel)
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        headerLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+        
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        headerLabel.textColor = .white
+        
+        contentView.backgroundColor = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
+    }
+    
+    func setHeaderTitle(_ text: String?) {
+        self.headerLabel.text = text
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 // MARK: Расширение
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -68,22 +96,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // представление заголовка секции
+    // CЕТАП ЗАГОЛОВКА СЕКЦИИ
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SettingsSectionHeader") as? SettingsTableViewSectionHeader else {return UIView()}
+        headerView.setHeaderTitle(SettingsSection(rawValue: section)?.description)
         
-        view.backgroundColor = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
-        
-        let title  = UILabel()
-        title.font = UIFont.boldSystemFont(ofSize: 16)
-        title.textColor = .white
-        title.text = SettingsSection(rawValue: section)?.description
-        view.addSubview(title)
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        
-        return view
+        return headerView
     }
     
     // ВЫСОТА ЗАГОЛОВКА СЕКЦИИ
