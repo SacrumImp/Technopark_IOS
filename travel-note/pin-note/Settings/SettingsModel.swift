@@ -88,8 +88,8 @@ enum DataControlSection: Int, CaseIterable, CustomStringConvertible {
     
     var description: String {
         switch self {
-        case .password: return "Защита паролем"
-        case .changePassword: return "Изменение пароля"
+        case .password: return "Синхронизироваться"
+        case .changePassword: return "Восстановить данные"
         }
     }
 }
