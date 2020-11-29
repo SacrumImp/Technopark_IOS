@@ -11,7 +11,7 @@ import FirebaseAuth
 private let reuseIdentifier = "SettingsCell"
 
 // MARK: Контроллер
-class SettingsView: UIViewController {
+class SettingsViewController: UIViewController {
     
     
     var tableView: UITableView!
@@ -51,7 +51,7 @@ class SettingsView: UIViewController {
 }
 
 // MARK: Расширение
-extension SettingsView: UITableViewDelegate, UITableViewDataSource {
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SettingsSection.allCases.count

@@ -49,7 +49,7 @@ class ListNotesViewController: UIViewController {
     }
     
     @objc func openSettings(sender: UIButton) {
-        let settingsView = SettingsView()
+        let settingsView = SettingsViewController()
         let navVC = UINavigationController(rootViewController: settingsView)
         navVC.modalTransitionStyle = .crossDissolve
         navVC.modalPresentationStyle = .fullScreen
