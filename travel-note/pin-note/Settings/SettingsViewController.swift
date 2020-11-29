@@ -57,15 +57,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let section = SettingsSection(rawValue: section) else {return 0}
-        
         switch section {
-        case .Auth: return 1
-        case .Main: return MainSection.allCases.count
-        case .Conf: return ConfidentialitySection.allCases.count
-        case .DataControl: return DataControlSection.allCases.count
-        case .Info: return InfoSection.allCases.count
+        case 0: return 1
+        case 1: return MainSection.allCases.count
+        case 2: return ConfidentialitySection.allCases.count
+        case 3: return DataControlSection.allCases.count
+        case 4: return InfoSection.allCases.count
+        default:
+            return 0
         }
     }
     
