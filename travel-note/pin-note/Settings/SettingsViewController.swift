@@ -13,7 +13,7 @@ import FirebaseAuth
 class SettingsViewController: UIViewController {
     
     
-    var tableView: UITableView!
+    private var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
