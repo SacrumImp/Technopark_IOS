@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseAuth
 
-private let reuseIdentifier = "SettingsCell"
 
 // MARK: Контроллер
 class SettingsViewController: UIViewController {
@@ -27,7 +26,7 @@ class SettingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 60
         
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         view.addSubview(tableView)
         tableView.frame = view.frame
         
