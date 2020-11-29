@@ -163,8 +163,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             if cellText == AuthSection.logIn.description {
                 //dismiss(animated: true, completion: nil)
                 let authentificationViewModel = AuthentificationViewModel()
-                let authentificationView = AuthenticationPhoneViewController()
-                authentificationView.viewModel = authentificationViewModel
+                let authentificationView = AuthenticationPhoneViewController(viewModel: authentificationViewModel)
                 authentificationView.modalTransitionStyle = .coverVertical
                 authentificationView.modalPresentationStyle = .automatic
                 self.present(authentificationView, animated: true)

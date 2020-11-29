@@ -14,7 +14,12 @@ protocol AuthenticationPhoneViewControllerProtocol {
 
 class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneViewControllerProtocol {
     
-    var viewModel: AuthentificationViewModelProtocol!
+    private var viewModel: AuthentificationViewModelProtocol!
+    
+    convenience init(viewModel: AuthentificationViewModelProtocol){
+        self.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
     
     let authLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
@@ -73,9 +78,8 @@ class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneVi
                 default:
                     break
             }
-            let codeView = AuthenticationCodeViewController()
             let authentificationViewModel = AuthentificationViewModel()
-            codeView.viewModel = authentificationViewModel
+            let codeView = AuthenticationCodeViewController(viewModel: authentificationViewModel)
             codeView.modalTransitionStyle = .flipHorizontal
             codeView.modalPresentationStyle = .automatic
             self.modalTransitionStyle = .flipHorizontal

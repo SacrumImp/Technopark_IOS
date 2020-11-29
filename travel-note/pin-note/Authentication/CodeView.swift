@@ -14,7 +14,12 @@ protocol AuthenticationCodeViewControllerProtocol {
 
 class AuthenticationCodeViewController: UIViewController, AuthenticationCodeViewControllerProtocol {
     
-    var viewModel: AuthentificationViewModelProtocol!
+    private var viewModel: AuthentificationViewModelProtocol!
+    
+    convenience init(viewModel: AuthentificationViewModelProtocol){
+        self.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
     
     let codeLabel: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
