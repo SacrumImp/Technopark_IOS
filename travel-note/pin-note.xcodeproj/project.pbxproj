@@ -23,6 +23,7 @@
 		206E972E253B7B5C00A16B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */; };
 		206E9739253B7B5D00A16B65 /* travel_noteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9738253B7B5D00A16B65 /* travel_noteTests.swift */; };
 		206E9744253B7B5D00A16B65 /* travel_noteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */; };
+		20BAB9E42573DBE400F351A0 /* AuthenticationStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAB9E32573DBE400F351A0 /* AuthenticationStructs.swift */; };
 		20E531C425424B1F0038453E /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531C325424B1F0038453E /* PhoneView.swift */; };
 		20E531D82544FD900038453E /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531D72544FD900038453E /* CodeView.swift */; };
 		82A3A62502082274D71A36A8 /* Pods_pin_note_pin_noteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26376A3C59DB5A99B187DD72 /* Pods_pin_note_pin_noteUITests.framework */; };
@@ -82,6 +83,7 @@
 		206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travel_noteUITests.swift; sourceTree = "<group>"; };
 		206E9745253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20BA4A2F2541DAB6004DEF97 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20BAB9E32573DBE400F351A0 /* AuthenticationStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStructs.swift; sourceTree = "<group>"; };
 		20E531C325424B1F0038453E /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		20E531D72544FD900038453E /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		23C9E967706C48AD8D2A548B /* Pods-pin-note-pin-noteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note-pin-noteUITests.release.xcconfig"; path = "Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				20E531D72544FD900038453E /* CodeView.swift */,
 				201690782554C4BE00330227 /* AuthenticationViewModel.swift */,
 				206661AB256B3A6700C963B9 /* AuthenticationModel.swift */,
+				20BAB9E32573DBE400F351A0 /* AuthenticationStructs.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -147,6 +150,8 @@
 		2066608E2559779B00C963B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				204428AE254DBE4500E05E9D /* GoogleService-Info.plist */,
+				206E972F253B7B5C00A16B65 /* Info.plist */,
 				20666086255976A300C963B9 /* API.plist */,
 			);
 			path = Resources;
@@ -188,20 +193,13 @@
 		206E9720253B7B5A00A16B65 /* pin-note */ = {
 			isa = PBXGroup;
 			children = (
+				20BAB9DC2573D66D00F351A0 /* Utils */,
+				20BAB9DB2573D64300F351A0 /* ListNotes */,
+				20BAB9DA2573D61400F351A0 /* TabBar */,
+				20BAB9D92573D5CF00F351A0 /* Launch */,
 				20666172255F508200C963B9 /* Map */,
-				2066608E2559779B00C963B9 /* Resources */,
 				92B3667D255A8CEA0015B94E /* Settings */,
 				2016905B2554C19000330227 /* Authentication */,
-				92B75C5A255E6D8F00594BEC /* Common.swift */,
-				206E9721253B7B5A00A16B65 /* AppDelegate.swift */,
-				206E9723253B7B5A00A16B65 /* SceneDelegate.swift */,
-				206E9725253B7B5A00A16B65 /* ViewController.swift */,
-				206E972A253B7B5C00A16B65 /* Assets.xcassets */,
-				206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */,
-				206E972F253B7B5C00A16B65 /* Info.plist */,
-				204428AE254DBE4500E05E9D /* GoogleService-Info.plist */,
-				204428CF254E105B00E05E9D /* TabBarController.swift */,
-				204428D4254E111700E05E9D /* ListNotesViewController.swift */,
 			);
 			path = "pin-note";
 			sourceTree = "<group>";
@@ -222,6 +220,43 @@
 				206E9745253B7B5D00A16B65 /* Info.plist */,
 			);
 			path = "pin-noteUITests";
+			sourceTree = "<group>";
+		};
+		20BAB9D92573D5CF00F351A0 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				206E9725253B7B5A00A16B65 /* ViewController.swift */,
+				206E972C253B7B5C00A16B65 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		20BAB9DA2573D61400F351A0 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				204428CF254E105B00E05E9D /* TabBarController.swift */,
+				92B75C5A255E6D8F00594BEC /* Common.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		20BAB9DB2573D64300F351A0 /* ListNotes */ = {
+			isa = PBXGroup;
+			children = (
+				204428D4254E111700E05E9D /* ListNotesViewController.swift */,
+			);
+			path = ListNotes;
+			sourceTree = "<group>";
+		};
+		20BAB9DC2573D66D00F351A0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2066608E2559779B00C963B9 /* Resources */,
+				206E9721253B7B5A00A16B65 /* AppDelegate.swift */,
+				206E9723253B7B5A00A16B65 /* SceneDelegate.swift */,
+				206E972A253B7B5C00A16B65 /* Assets.xcassets */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2AE7C7E2FE539C651F1E97D1 /* Pods */ = {
@@ -604,6 +639,7 @@
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				92B3668A255A902B0015B94E /* SettingsViewController.swift in Sources */,
+				20BAB9E42573DBE400F351A0 /* AuthenticationStructs.swift in Sources */,
 				92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */,
 				92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */,
 				92B75C5B255E6D8F00594BEC /* Common.swift in Sources */,
@@ -780,7 +816,7 @@
 				DEVELOPMENT_TEAM = C94TG9NQWN;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "pin-note/Info.plist";
+				INFOPLIST_FILE = "pin-note/Utils/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -803,7 +839,7 @@
 				DEVELOPMENT_TEAM = C94TG9NQWN;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "pin-note/Info.plist";
+				INFOPLIST_FILE = "pin-note/Utils/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

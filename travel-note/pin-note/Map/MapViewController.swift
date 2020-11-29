@@ -16,16 +16,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     var viewModel: MapViewModelProtocol!{
         didSet{
-            viewModel.currentLocationDidChange = { [weak self] viewModel in
-                self?.marker.position = CLLocationCoordinate2D(latitude: viewModel.currentLocation.latitude, longitude: viewModel.currentLocation.longitude)
-                let camera = GMSCameraPosition.camera(withTarget: (self?.marker.position)!, zoom: 17.0)
-                self?.mapView.camera = camera
+            viewModel.currentLocationDidChange = { [weak self] currentLocation in
+                guard let self = self else { return }
+                self.marker.position = CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+                let camera = GMSCameraPosition.camera(withTarget: self.marker.position, zoom: 17.0)
+                self.mapView.camera = camera
             }
         }
     }
     
-    var mapView: GMSMapView!
-    var marker: GMSMarker!
+    private var mapView: GMSMapView!
+    private var marker: GMSMarker!
     
     let labelVC: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 80, width: 130, height: 35))
@@ -54,8 +55,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        viewModel.setLocationService(delegate: viewModel as! GeolocationServiceDelegate)
         
         mapView = getMapView()
         mapView.delegate = self

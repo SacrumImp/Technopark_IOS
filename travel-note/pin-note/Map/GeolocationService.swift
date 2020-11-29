@@ -17,8 +17,8 @@ protocol GeolocationServiceDelegate: class {
 
 class GeolocationService: NSObject {
     
-    let locationManager = CLLocationManager()
-    var delegate: GeolocationServiceDelegate
+    private let locationManager = CLLocationManager()
+    private var delegate: GeolocationServiceDelegate
 
     init(delegate: GeolocationServiceDelegate) {
         self.delegate = delegate

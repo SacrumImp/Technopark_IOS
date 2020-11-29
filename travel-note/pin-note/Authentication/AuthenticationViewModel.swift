@@ -20,8 +20,8 @@ protocol AuthentificationViewModelProtocol: class {
 
 class AuthentificationViewModel: AuthentificationViewModelProtocol {
     
-    var user: User?
-    var authPocessorProtocol: AuthProccessorProtocol!
+    private var user: User?
+    private var authPocessorProtocol: AuthProccessorProtocol!
     
     func sendPhone(phoneNumber: String, completion: @escaping (User?, ViewErrors?) -> Void) {
         authPocessorProtocol = AuthProccessor()

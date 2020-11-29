@@ -8,18 +8,6 @@
 
 import FirebaseAuth
 
-struct User {
-    let phone: String
-    let verificationID: String
-    let code: String
-}
-
-enum NetworkErrors {
-    case noConnection
-    case invalidPhone
-    case invalidCode
-}
-
 protocol AuthProccessorProtocol: class {
     
     func sendPhone(phoneNumber: String, completion: @escaping (User?, NetworkErrors?) -> Void)

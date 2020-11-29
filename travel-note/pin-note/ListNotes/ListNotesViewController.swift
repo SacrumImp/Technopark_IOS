@@ -9,7 +9,7 @@ import UIKit
 
 class ListNotesViewController: UIViewController {
     
-    let label: UILabel = {
+    private let label: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
         lable.text = "Hello!" //STRINGS:
         lable.font = .systemFont(ofSize: 24, weight: .bold)
@@ -17,7 +17,7 @@ class ListNotesViewController: UIViewController {
         return lable
     }()
     
-    let labelVC: UILabel = {
+    private let labelVC: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 50, width: 300, height: 100))
         lable.text = "ListNotes" //STRINGS:
         lable.font = .systemFont(ofSize: 24, weight: .bold)
@@ -25,7 +25,7 @@ class ListNotesViewController: UIViewController {
         return lable
     }()
     
-    let testSettingsButton: UIButton = {
+    private let testSettingsButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 280, y: 80, width: 120, height: 35))
         button.setTitle("Настройки", for: .normal)
         button.setTitleColor(UIColor.red, for: .normal) //красным чтоб заметно было
@@ -48,7 +48,7 @@ class ListNotesViewController: UIViewController {
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
     }
     
-    @objc func openSettings(sender: UIButton) {
+    @objc private func openSettings(sender: UIButton) {
         let settingsView = SettingsViewController()
         let navVC = UINavigationController(rootViewController: settingsView)
         navVC.modalTransitionStyle = .crossDissolve
