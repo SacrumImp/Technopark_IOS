@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>920138824080-h1vco4rrpl4cavruhor5kt594tfb5f7k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.920138824080-h1vco4rrpl4cavruhor5kt594tfb5f7k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwvdiMqit4mnFfFKwp7Df0IT_RrSeHTH4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>920138824080</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Travel-Note.travel-note</string>
+	<key>PROJECT_ID</key>
+	<string>travel-note-a8fb8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>travel-note-a8fb8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:920138824080:ios:a1f8e71d530c031c3a5b15</string>
+	<key>DATABASE_URL</key>
+	<string>https://travel-note-a8fb8.firebaseio.com</string>
+</dict>
+</plist>

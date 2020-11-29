@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '13.0'
+
+target 'pin-note' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for pin-note
+  
+  #Авторизация
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  
+  #Валидация номера телефона
+  pod 'PhoneNumberKit', '~> 3.3'
+  
+  #Карты
+  pod 'GoogleMaps'
+
+  target 'pin-noteTests' do
+    inherit! :search_paths
+    pod 'Firebase'
+    pod 'Firebase/Auth'
+  end
+
+  target 'pin-noteUITests' do
+    pod 'Firebase'
+    pod 'Firebase/Auth'
+  end
+
+end
