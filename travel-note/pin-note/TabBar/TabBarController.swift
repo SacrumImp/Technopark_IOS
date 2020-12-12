@@ -23,18 +23,31 @@ class TabBarController: UITabBarController {
         let mapVC = MapViewController()
         let mapVCViewModel = MapViewModel()
         mapVC.viewModel = mapVCViewModel
-        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(systemName: "map"), tag: 0) //STRINGS:
+        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
 
         
         let listVC = ListNotesViewController()
-        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(systemName: "doc.text"), tag: 1) //STRINGS:
-        
+        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 1) //STRINGS:
         
         self.viewControllers = [mapVC, listVC]
         
+        tabbarConfig() //настройка внешнего вида таббара
     
-        
     }
     
+    private func tabbarConfig() {
+
+        self.tabBar.isTranslucent = true
+        self.tabBar.backgroundImage = UIImage()
+        //self.tabBar.shadowImage = UIImage() // раскоменть и удалишь разделитель
+        self.tabBar.barTintColor = .clear
+        self.tabBar.layer.backgroundColor = UIColor.clear.cgColor
+
+        let blurEffect = UIBlurEffect(style: .light) // изменение стиля размытия
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = self.tabBar.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.tabBar.insertSubview(blurView, at: 0)
+    }
     
 }
