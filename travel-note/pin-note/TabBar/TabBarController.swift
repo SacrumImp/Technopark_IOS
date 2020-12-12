@@ -23,13 +23,16 @@ class TabBarController: UITabBarController {
         let mapVC = MapViewController()
         let mapVCViewModel = MapViewModel()
         mapVC.viewModel = mapVCViewModel
-        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
-
         
         let listVC = ListNotesViewController()
-        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 1) //STRINGS:
         
-        self.viewControllers = [mapVC, listVC]
+        let actionVC = UIViewController()
+        
+        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
+        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 2) //STRINGS:
+        actionVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar-add-icon.svg"), tag: 1) //STRINGS:
+        
+        self.viewControllers = [mapVC, actionVC, listVC]
         
         tabbarConfig() //настройка внешнего вида таббара
     
@@ -48,6 +51,11 @@ class TabBarController: UITabBarController {
         blurView.frame = self.tabBar.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.tabBar.insertSubview(blurView, at: 0)
+        
+        // кнопка новой заметки
+        let addItem = self.tabBar.items![1] as UITabBarItem
+        addItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        
     }
     
 }
