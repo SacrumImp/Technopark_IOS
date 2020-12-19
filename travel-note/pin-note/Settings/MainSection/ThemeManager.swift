@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+//TODO: задать темы тут, добавить view в настройки для выбора текущей темы, добавить сетап цветов через thememanager для каждого UI элемента проекта
 extension UIColor {
     func colorFromHexString (_ hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
