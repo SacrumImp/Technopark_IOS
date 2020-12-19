@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey(dictOfAPIs["GMSServices"]?["key"] ?? "0")
         
+        ThemeManager.applyTheme(theme: .theme1)
+        
         return true
     }
     
