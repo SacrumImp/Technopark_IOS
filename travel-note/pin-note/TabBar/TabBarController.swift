@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate{
     
     // перед появлением определяем на какой странице будет открыт tab bar
     override func viewWillAppear(_ animated: Bool) {
@@ -17,25 +17,42 @@ class TabBarController: UITabBarController {
         }
     }
     
+    var mapViewController: MapViewController!
+    var actionViewController: AddNoteViewController!
+    var listViewController: ListNotesViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
         
-        let mapVC = MapViewController()
+        mapViewController = MapViewController()
         let mapVCViewModel = MapViewModel()
-        mapVC.viewModel = mapVCViewModel
+        mapViewController.viewModel = mapVCViewModel
         
-        let listVC = ListNotesViewController()
+        actionViewController = AddNoteViewController()
+        listViewController = ListNotesViewController()
         
-        let actionVC = UIViewController()
         
-        mapVC.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
-        listVC.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 2) //STRINGS:
-        actionVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar-add-icon.svg"), tag: 1) //STRINGS:
+        mapViewController.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
+        listViewController.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 2) //STRINGS:
+        actionViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar-add-icon.svg"), tag: 1) //STRINGS:
         
-        self.viewControllers = [mapVC, actionVC, listVC]
+        self.viewControllers = [mapViewController, actionViewController, listViewController]
         
         tabbarConfig() //настройка внешнего вида таббара
     
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+          if viewController.isKind(of: AddNoteViewController.self) {
+             let vc =  AddNoteViewController()
+             let navVC = UINavigationController(rootViewController: vc)
+             navVC.modalTransitionStyle = .crossDissolve
+             navVC.modalPresentationStyle = .fullScreen
+             self.present(navVC, animated: true, completion: nil)
+             return false
+          }
+          return true
     }
     
     private func tabbarConfig() {
