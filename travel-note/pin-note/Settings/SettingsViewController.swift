@@ -15,8 +15,11 @@ class SettingsViewController: UIViewController {
     
     private var tableView: UITableView!
     
+    private let theme = ThemeManager.currentTheme()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = theme.tableCellColor
         configureUI()
     }
     
@@ -40,8 +43,9 @@ class SettingsViewController: UIViewController {
         configureTableView()
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1)
+        navigationController?.navigationBar.barStyle = theme.barStyle
+        navigationController?.navigationBar.barTintColor = theme.barTintColor
+        navigationController?.navigationBar.tintColor = UIColor.white;
         navigationItem.title = "Настройки"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Закрыть", style: .plain, target: self, action: #selector(dismissSelf))
     }
@@ -55,6 +59,8 @@ final class SettingsTableViewSectionHeader: UITableViewHeaderFooterView {
     
     private let headerLabel = UILabel()
     
+    private let theme = ThemeManager.currentTheme()
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.addSubview(headerLabel)
@@ -63,9 +69,9 @@ final class SettingsTableViewSectionHeader: UITableViewHeaderFooterView {
         headerLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
         
         headerLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        headerLabel.textColor = .white
+        headerLabel.textColor = theme.secondaryLableTextColor
         
-        contentView.backgroundColor = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
+        contentView.backgroundColor = theme.backgroundColor
     }
     
     func setHeaderTitle(_ text: String?) {
@@ -112,7 +118,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     // ЗАПОЛНЕНИЕ ЯЧЕЕК
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell else {return UITableViewCell()}
-    
+        
+        let theme = ThemeManager.currentTheme()
+        cell.backgroundColor = theme.tableCellColor
+        
         guard let section = SettingsSection(rawValue: indexPath.section) else {return UITableViewCell()}
         
         switch section {
@@ -182,6 +191,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             let cellText = cell.textLabel?.text
             if cellText == MainSection.firstScreen.description {
                 let vc = FirstScreenViewController()
+                navigationController?.pushViewController(vc, animated: true)
+            } else if cellText == MainSection.theme.description {
+                let vc = ThemeViewController()
                 navigationController?.pushViewController(vc, animated: true)
             }
         case .Conf:
