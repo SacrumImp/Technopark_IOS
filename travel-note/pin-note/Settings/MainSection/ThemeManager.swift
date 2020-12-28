@@ -34,13 +34,13 @@ extension UIColor {
 }
 enum Theme: Int {
 
-    case theme1, theme2
+    case gray, dust
 
     var mainColor: UIColor {
         switch self {
-        case .theme1:
+        case .gray:
             return UIColor().colorFromHexString("ffffff")
-        case .theme2:
+        case .dust:
             return UIColor().colorFromHexString("000000")
         }
     }
@@ -48,59 +48,95 @@ enum Theme: Int {
     //Customizing the Navigation Bar
     var barStyle: UIBarStyle {
         switch self {
-        case .theme1:
-            return .default
-        case .theme2:
+        case .gray:
             return .black
+        case .dust:
+            return .black
+        }
+    }
+    
+    var barTintColor: UIColor {
+        switch self {
+        case .gray:
+            return .darkGray
+        case .dust:
+            return UIColor(red: 145/255, green: 138/255, blue: 118/255, alpha: 1)
         }
     }
 
     var navigationBackgroundImage: UIImage? {
-        return self == .theme1 ? UIImage(named: "navBackground") : nil
+        return self == .gray ? UIImage(named: "navBackground") : nil
     }
 
     var tabBarBackgroundImage: UIImage? {
-        return self == .theme1 ? UIImage(named: "tabBarBackground") : nil
+        return self == .gray ? UIImage(named: "tabBarBackground") : nil
     }
 
     var backgroundColor: UIColor {
         switch self {
-        case .theme1:
-            return UIColor().colorFromHexString("ffffff")
-        case .theme2:
-            return UIColor().colorFromHexString("000000")
+        case .gray:
+            return .gray
+        case .dust:
+            return UIColor(red: 184/255, green: 174/255, blue: 147/255, alpha: 1)
         }
     }
 
     var secondaryColor: UIColor {
         switch self {
-        case .theme1:
-            return UIColor().colorFromHexString("ffffff")
-        case .theme2:
-            return UIColor().colorFromHexString("000000")
+        case .gray:
+            return .lightGray
+        case .dust:
+            return UIColor(red: 235/255, green: 225/255, blue: 195/255, alpha: 1)
+        }
+    }
+    
+    var tableCellColor: UIColor {
+        switch self {
+        case .gray:
+            return .white
+        case .dust:
+            return UIColor(red: 235/255, green: 225/255, blue: 195/255, alpha: 1)
         }
     }
     
     var titleTextColor: UIColor {
         switch self {
-        case .theme1:
-            return UIColor().colorFromHexString("ffffff")
-        case .theme2:
+        case .gray:
+            return .black
+        case .dust:
             return UIColor().colorFromHexString("000000")
         }
     }
+    
     var subtitleTextColor: UIColor {
         switch self {
-        case .theme1:
+        case .gray:
             return UIColor().colorFromHexString("ffffff")
-        case .theme2:
+        case .dust:
             return UIColor().colorFromHexString("000000")
+        }
+    }
+    
+    var lableTextColor: UIColor {
+        switch self {
+        case .gray:
+            return .black
+        case .dust:
+            return UIColor().colorFromHexString("000000")
+        }
+    }
+    var secondaryLableTextColor: UIColor {
+        switch self {
+        case .gray:
+            return .white
+        case .dust:
+            return .white
         }
     }
 }
 
 // Enum declaration
-let SelectedThemeKey = "SelectedTheme"
+let SelectedThemeKey = "selectedTheme"
 
 // This will let you use a theme in the app.
 class ThemeManager {
@@ -110,7 +146,7 @@ class ThemeManager {
         if let storedTheme = (UserDefaults.standard.value(forKey: SelectedThemeKey) as AnyObject).integerValue {
             return Theme(rawValue: storedTheme)!
         } else {
-            return .theme2
+            return .dust
         }
     }
 
@@ -122,14 +158,17 @@ class ThemeManager {
         // You get your current (selected) theme and apply the main color to the tintColor property of your application’s window.
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
+        
+        UILabel.appearance().textColor = theme.lableTextColor
 
         UINavigationBar.appearance().barStyle = theme.barStyle
         UINavigationBar.appearance().setBackgroundImage(theme.navigationBackgroundImage, for: .default)
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "backArrow")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "backArrowMaskFixed")
+        UINavigationBar.appearance().barTintColor = theme.barTintColor
 
-        UITabBar.appearance().barStyle = theme.barStyle
-        UITabBar.appearance().backgroundImage = theme.tabBarBackgroundImage
+        //UITabBar.appearance().barStyle = theme.barStyle
+        //UITabBar.appearance().backgroundImage = theme.tabBarBackgroundImage
 
         let tabIndicator = UIImage(named: "tabBarSelectionIndicator")?.withRenderingMode(.alwaysTemplate)
         let tabResizableIndicator = tabIndicator?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 2.0, bottom: 0, right: 2.0))
