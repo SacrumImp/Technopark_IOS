@@ -42,4 +42,9 @@ class DataManager {
         }
     }
     
+    func loadNotes() -> [Notes]{
+        let fetchRequest: NSFetchRequest<Notes> = NSFetchRequest(entityName: "Notes")
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
+    }
+    
 }

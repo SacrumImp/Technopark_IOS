@@ -9,6 +9,8 @@ import UIKit
 
 class ListNotesViewController: UIViewController {
     
+    var viewModel: ListNotesViewModelProtocol!
+    
     private let label: UILabel = {
         let lable = UILabel(frame:CGRect(x: 0, y: 0, width: 300, height: 100))
         lable.text = "Hello!" //STRINGS:
@@ -46,6 +48,8 @@ class ListNotesViewController: UIViewController {
         
         view.addSubview(testSettingsButton)
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
+        
+        print(viewModel.getNotes())
     }
     
     @objc private func openSettings(sender: UIButton) {

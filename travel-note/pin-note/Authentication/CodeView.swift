@@ -75,8 +75,9 @@ class AuthenticationCodeViewController: UIViewController, AuthenticationCodeView
             guard let self = self else { return }
             switch error { //TODO: поработать с ошибками
                 case .noConnection:
-                    let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
-                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in self.dismiss(animated: true)}))
+                    let errorCode = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
+                    errorCode.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+                    self.present(errorCode, animated: true, completion: nil)
                 default:
                     break
             }
