@@ -7,9 +7,11 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     var viewModel: AddNoteViewModelProtocol!
+
+    var pickedPhotoes = [UIImage]()
 
 // MARK: properties
     private let mainView: UIScrollView = {
@@ -27,7 +29,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         lable.textAlignment = .left
         return lable
     }()
-    
+    // заголовок заметки
     private var noteTitleField: UITextField = {
         var width = UIScreen.main.bounds.size.width
         let marginLeft = CGFloat(15)
@@ -60,7 +62,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         lable.textAlignment = .left
         return lable
     }()
-    
+    // геометка
     private var geoField: UITextField = {
         var width = UIScreen.main.bounds.size.width
         let marginLeft = CGFloat(15)
@@ -91,7 +93,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         lable.textAlignment = .left
         return lable
     }()
-    
+    // примечание
     private var textView: UITextView = {
         var width = UIScreen.main.bounds.size.width
         var height = UIScreen.main.bounds.size.height
@@ -122,7 +124,37 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         return textView
     }()
+    
+    private let mediaLable: UILabel = {
+        let height = UIScreen.main.bounds.size.height
+        let marginLeft = CGFloat(15)
+        let lable = UILabel(frame:CGRect(x: marginLeft, y: 259 + (height/2), width: 150, height: 25))
+        lable.text = "Медиа" //STRINGS:
+        lable.font = .systemFont(ofSize: 15, weight: .bold)
+        lable.textAlignment = .left
+        lable.isHidden = true
+        return lable
+    }()
+    // коллекция для фото
+    private var photoCollection: UICollectionView = {
+        var width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+        let marginLeft = CGFloat(15)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        var collection = UICollectionView(frame: CGRect(x: marginLeft, y: 289 + (height/2), width: width - (marginLeft*2), height: 120), collectionViewLayout: layout)
+        let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 5, height: 2.0))
+        collection.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+        collection.backgroundColor = .lightGray
+        collection.layer.cornerRadius = 5
+        collection.layer.borderColor = UIColor.lightGray.cgColor
+        collection.layer.borderWidth = 1.0
+        collection.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return collection
+    }()
+    
 // MARK: buttons
+    // добавление геолокации
     let addGeoButton: UIButton = {
         var width = UIScreen.main.bounds.size.width
         let marginLeft = CGFloat(15)
@@ -138,7 +170,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         button.layer.cornerRadius = 5
         return button
     }()
-    
+    // добавление медиа
     let addMediaButton: UIButton = {
         var width = UIScreen.main.bounds.size.width
         var height = UIScreen.main.bounds.size.height
@@ -173,8 +205,13 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         mainView.addSubview(textView)
         mainView.addSubview(addGeoButton)
         mainView.addSubview(addMediaButton)
-        //addMediaButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
-        mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: 1000)
+        mainView.addSubview(mediaLable)
+        mainView.addSubview(photoCollection)
+        photoCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        photoCollection.delegate = self
+        photoCollection.dataSource = self
+        addMediaButton.addTarget(self, action: #selector(addMediaButtonPressed(sender:)), for: .touchUpInside)
+        mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height)
         
         configureUI()
         
@@ -192,7 +229,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         NSLayoutConstraint.activate(constraints)
     }
-    
+    // настройка навигации и констрейнтов на main view
     private func configureUI() {
         
         configureConstraints()
@@ -204,9 +241,26 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(dismissSelf))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveNewNote))
     }
+    // выбор фотографий из галереи
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let userPickedImage = info[.editedImage] as? UIImage else { return }
+        pickedPhotoes.append(userPickedImage)
+        
+        photoCollection.reloadData()
+
+        picker.dismiss(animated: true)
+    }
     
     @objc func dismissSelf() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func addMediaButtonPressed(sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
     }
     
     @objc func saveNewNote() {
@@ -222,14 +276,12 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
 // MARK: textField delegate funcs
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        // return NO to disallow editing.
         textField.layer.borderColor = UIColor.link.cgColor
         print("TextField should begin editing method called")
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
         textField.layer.borderColor = UIColor.gray.cgColor
         print("TextField should snd editing method called")
         return true
@@ -246,4 +298,82 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         print("TextView should snd editing method called")
         return true
     }
+// MARK: collectionView delegate funcs
+    // настройка layout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+    // количество ячеек
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pickedPhotoes.count
+    }
+    // отображение картинок в ячейках
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        if pickedPhotoes.count != 0 {
+            cell.photo.image = pickedPhotoes[indexPath.row]
+            photoCollection.layer.borderColor = UIColor.gray.cgColor
+            mediaLable.isHidden = false
+            mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height + 125)
+        }
+        
+        return cell
+    }
+    // нажатие на ячейку коллекции
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? CustomCell
+        
+        photoCollection.layer.borderColor = UIColor.link.cgColor
+        
+        // создание алерта
+        let alert = UIAlertController(title: "Удаление...", message: "Вы действительно хотите удалить прикреплённую фотографию?", preferredStyle: UIAlertController.Style.actionSheet)
+
+        // действия алерта
+        alert.addAction(UIAlertAction(title: "Удалить", style: UIAlertAction.Style.destructive, handler: { action in
+            collectionView.deleteItems(at: [indexPath])
+            print("Количество выбранных фото до удаления: \(self.pickedPhotoes.count)")
+            self.pickedPhotoes.remove(at: indexPath.row)
+            print("Количество выбранных фото до удаления: \(self.pickedPhotoes.count)")
+            
+            if self.pickedPhotoes.count == 0 {
+                self.photoCollection.layer.borderColor = UIColor.lightGray.cgColor
+                self.mediaLable.isHidden = true
+                self.mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: self.mainView.bounds.size.height)
+            }
+            else {
+                self.photoCollection.layer.borderColor = UIColor.gray.cgColor
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil))
+
+        // вывод алерта
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+// кастомная ячейка
+class CustomCell: UICollectionViewCell {
+    fileprivate let photo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
+        return imageView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        contentView.addSubview(photo)
+        photo.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        photo.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        photo.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        photo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
