@@ -9,6 +9,8 @@ import UIKit
 
 class FirstScreenViewController: UIViewController {
     
+    private let theme = ThemeManager.currentTheme()
+    
     override func loadView() {
         super.loadView()
         self.view.backgroundColor = .systemBackground
@@ -16,7 +18,7 @@ class FirstScreenViewController: UIViewController {
         // инит
         let items = ["Карта", "Список"]
         let SC = UISegmentedControl(items: items)
-        SC.selectedSegmentIndex = Common.Settings.StartingHomePage
+        SC.selectedSegmentIndex = Common.Settings.StartingHomePage == 2 ? Common.Settings.StartingHomePage - 1 : Common.Settings.StartingHomePage
         
         // рамка
         let frame = UIScreen.main.bounds
@@ -25,8 +27,8 @@ class FirstScreenViewController: UIViewController {
         
         // углы и цвет
         SC.layer.cornerRadius = 4.0
-        SC.backgroundColor = UIColor.darkGray
-        SC.tintColor = UIColor.white
+        SC.backgroundColor = theme.barTintColor
+        SC.tintColor = theme.secondaryColor
 
         // обработка изменения значения
         SC.addTarget(self, action: #selector(sgDidSwich(sender:)), for: .valueChanged)
@@ -36,6 +38,7 @@ class FirstScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = theme.secondaryColor
     }
     
     // обработка изменения значения SC
@@ -44,7 +47,7 @@ class FirstScreenViewController: UIViewController {
         case 0:
             Common.Settings.StartingHomePage = Int(sender.selectedSegmentIndex)
         case 1:
-            Common.Settings.StartingHomePage = Int(sender.selectedSegmentIndex)
+            Common.Settings.StartingHomePage = Int(sender.selectedSegmentIndex + 1)
         default:
             print("gg")
         }
