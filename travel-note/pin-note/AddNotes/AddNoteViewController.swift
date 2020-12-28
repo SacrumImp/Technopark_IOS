@@ -216,7 +216,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         guard let info = textView.text, !info.isEmpty else {
             return //TODO: написать ошибку
         }
-        viewModel.addNewNote(title: title, info: info, latitude: 0, longitude: 0, media: NSData())
+        viewModel.addNewNote(title: title, info: info, latitude: 0, longitude: 0, media: Data())
         //TODO: добавить NSData, решить где доставать широту и долготу
     }
     

@@ -4,7 +4,7 @@
         <attribute name="info" attributeType="String"/>
         <attribute name="latitude" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="media" optional="YES" attributeType="Transformable"/>
+        <attribute name="media" optional="YES" attributeType="Binary"/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
     </entity>
     <elements>
