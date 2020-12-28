@@ -24,6 +24,11 @@
 		206E9739253B7B5D00A16B65 /* travel_noteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9738253B7B5D00A16B65 /* travel_noteTests.swift */; };
 		206E9744253B7B5D00A16B65 /* travel_noteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206E9743253B7B5D00A16B65 /* travel_noteUITests.swift */; };
 		20BAB9E42573DBE400F351A0 /* AuthenticationStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAB9E32573DBE400F351A0 /* AuthenticationStructs.swift */; };
+		20CFDC362599545300A2D25E /* PinNoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC342599545300A2D25E /* PinNoteModel.xcdatamodeld */; };
+		20CFDC562599591A00A2D25E /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC552599591A00A2D25E /* AddNoteViewModel.swift */; };
+		20CFDC5F2599595700A2D25E /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC5D2599595700A2D25E /* Notes+CoreDataClass.swift */; };
+		20CFDC602599595700A2D25E /* Notes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC5E2599595700A2D25E /* Notes+CoreDataProperties.swift */; };
+		20CFDC6525995A1800A2D25E /* AddNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC6425995A1700A2D25E /* AddNoteModel.swift */; };
 		20E531C425424B1F0038453E /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531C325424B1F0038453E /* PhoneView.swift */; };
 		20E531D82544FD900038453E /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531D72544FD900038453E /* CodeView.swift */; };
 		82A3A62502082274D71A36A8 /* Pods_pin_note_pin_noteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26376A3C59DB5A99B187DD72 /* Pods_pin_note_pin_noteUITests.framework */; };
@@ -86,6 +91,11 @@
 		206E9745253B7B5D00A16B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20BA4A2F2541DAB6004DEF97 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BAB9E32573DBE400F351A0 /* AuthenticationStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStructs.swift; sourceTree = "<group>"; };
+		20CFDC352599545300A2D25E /* PinNoteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PinNoteModel.xcdatamodel; sourceTree = "<group>"; };
+		20CFDC552599591A00A2D25E /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		20CFDC5D2599595700A2D25E /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		20CFDC5E2599595700A2D25E /* Notes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		20CFDC6425995A1700A2D25E /* AddNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteModel.swift; sourceTree = "<group>"; };
 		20E531C325424B1F0038453E /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		20E531D72544FD900038453E /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		23C9E967706C48AD8D2A548B /* Pods-pin-note-pin-noteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pin-note-pin-noteUITests.release.xcconfig"; path = "Target Support Files/Pods-pin-note-pin-noteUITests/Pods-pin-note-pin-noteUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +207,7 @@
 		206E9720253B7B5A00A16B65 /* pin-note */ = {
 			isa = PBXGroup;
 			children = (
+				20CFDC3325994FA900A2D25E /* CoreData */,
 				20BAB9DC2573D66D00F351A0 /* Utils */,
 				20BAB9D92573D5CF00F351A0 /* Launch */,
 				9200E2BF25985695006E97E6 /* AddNotes */,
@@ -264,6 +275,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		20CFDC3325994FA900A2D25E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				20CFDC5D2599595700A2D25E /* Notes+CoreDataClass.swift */,
+				20CFDC5E2599595700A2D25E /* Notes+CoreDataProperties.swift */,
+				20CFDC342599545300A2D25E /* PinNoteModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		2AE7C7E2FE539C651F1E97D1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				9200E2C82598589B006E97E6 /* AddNoteViewController.swift */,
+				20CFDC552599591A00A2D25E /* AddNoteViewModel.swift */,
+				20CFDC6425995A1700A2D25E /* AddNoteModel.swift */,
 			);
 			path = AddNotes;
 			sourceTree = "<group>";
@@ -640,6 +663,7 @@
 				20E531D82544FD900038453E /* CodeView.swift in Sources */,
 				206661AC256B3A6700C963B9 /* AuthenticationModel.swift in Sources */,
 				20666193256AFE0A00C963B9 /* MapModel.swift in Sources */,
+				20CFDC562599591A00A2D25E /* AddNoteViewModel.swift in Sources */,
 				206E9726253B7B5A00A16B65 /* ViewController.swift in Sources */,
 				206E9722253B7B5A00A16B65 /* AppDelegate.swift in Sources */,
 				2066619E256B0A6200C963B9 /* MapViewModel.swift in Sources */,
@@ -652,14 +676,18 @@
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
+				20CFDC362599545300A2D25E /* PinNoteModel.xcdatamodeld in Sources */,
 				92B3668A255A902B0015B94E /* SettingsViewController.swift in Sources */,
 				9200E2C92598589B006E97E6 /* AddNoteViewController.swift in Sources */,
 				20BAB9E42573DBE400F351A0 /* AuthenticationStructs.swift in Sources */,
 				92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */,
+				20CFDC602599595700A2D25E /* Notes+CoreDataProperties.swift in Sources */,
 				92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */,
 				92B75C5B255E6D8F00594BEC /* Common.swift in Sources */,
 				92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */,
+				20CFDC6525995A1800A2D25E /* AddNoteModel.swift in Sources */,
 				92E4C02B258E0B4D00786EE9 /* ThemeManager.swift in Sources */,
+				20CFDC5F2599595700A2D25E /* Notes+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,6 +1020,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		20CFDC342599545300A2D25E /* PinNoteModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20CFDC352599545300A2D25E /* PinNoteModel.xcdatamodel */,
+			);
+			currentVersion = 20CFDC352599545300A2D25E /* PinNoteModel.xcdatamodel */;
+			path = PinNoteModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 206E9716253B7B5A00A16B65 /* Project object */;
 }

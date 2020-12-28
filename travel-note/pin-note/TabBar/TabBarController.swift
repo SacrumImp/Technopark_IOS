@@ -18,7 +18,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
     }
     
     var mapViewController: MapViewController!
-    var actionViewController: AddNoteViewController!
+    var addNoteViewController: AddNoteViewController!
     var listViewController: ListNotesViewController!
     
     override func viewDidLoad() {
@@ -29,15 +29,18 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let mapVCViewModel = MapViewModel()
         mapViewController.viewModel = mapVCViewModel
         
-        actionViewController = AddNoteViewController()
+        addNoteViewController = AddNoteViewController()
+        let addNoteVCViewModel = AddNoteViewModel()
+        addNoteViewController.viewModel = addNoteVCViewModel
+        
         listViewController = ListNotesViewController()
         
         
         mapViewController.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
         listViewController.tabBarItem = UITabBarItem(title: "Список", image: UIImage(named: "tabbar-list-icon.svg"), tag: 2) //STRINGS:
-        actionViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar-add-icon.svg"), tag: 1) //STRINGS:
+        addNoteViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar-add-icon.svg"), tag: 1) //STRINGS:
         
-        self.viewControllers = [mapViewController, actionViewController, listViewController]
+        self.viewControllers = [mapViewController, addNoteViewController, listViewController]
         
         tabbarConfig() //настройка внешнего вида таббара
     

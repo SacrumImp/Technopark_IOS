@@ -8,6 +8,8 @@
 import UIKit
 
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    
+    var viewModel: AddNoteViewModelProtocol!
 
 // MARK: properties
     private let mainView: UIScrollView = {
@@ -208,7 +210,14 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     
     @objc func saveNewNote() {
-//        TODO: saving notes
+        guard let title = noteTitleField.text, !title.isEmpty else {
+            return //TODO: написать ошибку
+        }
+        guard let info = textView.text, !info.isEmpty else {
+            return //TODO: написать ошибку
+        }
+        viewModel.addNewNote(title: title, info: info, latitude: 0, longitude: 0, media: NSData())
+        //TODO: добавить NSData, решить где доставать широту и долготу
     }
     
 // MARK: textField delegate funcs
