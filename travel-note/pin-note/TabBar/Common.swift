@@ -14,6 +14,7 @@ class Common: NSObject {
         private enum SettingKeys: String {
             case wasTerminated
             case startingHomePage
+            case selectedTheme
         }
         
         // сохраняет с UserDefaults стартовый эктан (индекс для таббара (0 и/или 1; или в дальнейшем 2 итд)
@@ -32,6 +33,15 @@ class Common: NSObject {
             }
             get {
                 return UserDefaults.standard.bool(forKey: SettingKeys.wasTerminated.rawValue)
+            }
+        }
+        // сохраняет с UserDefaults факт закрытия приложения
+        static var SelectedTheme: Int {
+            set {
+                UserDefaults.standard.set(newValue, forKey: SettingKeys.selectedTheme.rawValue)
+            }
+            get {
+                return UserDefaults.standard.integer(forKey: SettingKeys.selectedTheme.rawValue)
             }
         }
     }
