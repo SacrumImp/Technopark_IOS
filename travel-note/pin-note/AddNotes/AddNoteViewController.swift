@@ -13,6 +13,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
     var pickedPhotoes = [UIImage]()
     
+    private var theme = ThemeManager.currentTheme()
+    
     var currentNote = Notes()
     var flag: Bool = false
     
@@ -204,18 +206,24 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         super.viewDidLoad()
         noteTitleField.delegate = self
         textView.delegate = self
-        view.backgroundColor = .gray
+        view.backgroundColor = theme.thirdColor
         view.addSubview(mainView)
+        mainView.backgroundColor = theme.thirdColor
         mainView.addSubview(titleLabel)
         mainView.addSubview(noteTitleField)
+        noteTitleField.backgroundColor = theme.thirdColor
         mainView.addSubview(geoLabel)
         mainView.addSubview(geoField)
+        geoField.backgroundColor = theme.firstColor
         mainView.addSubview(detailsLabel)
         mainView.addSubview(textView)
+        textView.backgroundColor = theme.thirdColor
         mainView.addSubview(addGeoButton)
         mainView.addSubview(addMediaButton)
         mainView.addSubview(mediaLable)
         mainView.addSubview(photoCollection)
+        photoCollection.backgroundColor = theme.thirdColor
+        photoCollection.layer.borderColor = theme.thirdColor.cgColor
         photoCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         photoCollection.delegate = self
         photoCollection.dataSource = self
@@ -251,8 +259,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         configureConstraints()
         
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1)
+        navigationController?.navigationBar.barStyle = theme.barStyle
+        navigationController?.navigationBar.barTintColor = theme.firstColor
         navigationItem.title = "Новая заметка"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(dismissSelf))
         if flag == false {
@@ -364,7 +372,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height + 125)
         } else {
             cell.photo.image = UIImage(data: currentNote.media)
-            photoCollection.layer.borderColor = UIColor.gray.cgColor
+            photoCollection.layer.borderColor = theme.thirdColor.cgColor
             mediaLable.isHidden = false
             mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height + 125)
         }
@@ -393,7 +401,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                 self.mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: self.mainView.bounds.size.height)
             }
             else {
-                self.photoCollection.layer.borderColor = UIColor.gray.cgColor
+                self.photoCollection.layer.borderColor = self.theme.thirdColor.cgColor
             }
         }))
         alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil))
