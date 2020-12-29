@@ -16,6 +16,8 @@ class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneVi
     
     private var viewModel: AuthentificationViewModelProtocol!
     
+    private let theme = ThemeManager.currentTheme()
+    
     convenience init(viewModel: AuthentificationViewModelProtocol){
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
@@ -48,7 +50,7 @@ class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = theme.fourthColor
         
         view.addSubview(authLabel)
         authLabel.center.x = self.view.center.x
@@ -74,7 +76,8 @@ class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneVi
             switch error { //TODO: поработать с ошибками
                 case .noConnection:
                     let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
-                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in self.dismiss(animated: true)}))
+                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+                    self.present(errorPhone, animated: true, completion: nil)
                 default:
                     break
             }
