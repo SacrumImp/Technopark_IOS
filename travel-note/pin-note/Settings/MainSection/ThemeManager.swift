@@ -39,9 +39,9 @@ enum Theme: Int {
     var mainColor: UIColor {
         switch self {
         case .gray:
-            return UIColor().colorFromHexString("ffffff")
+            return .black
         case .dust:
-            return UIColor().colorFromHexString("000000")
+            return .white
         }
     }
 
