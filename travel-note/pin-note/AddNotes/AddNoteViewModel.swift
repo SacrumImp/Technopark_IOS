@@ -22,7 +22,7 @@ class AddNoteViewModel: AddNoteViewModelProtocol{
     private var GEOService: GeolocationService!
     
     init() {
-        self.currentLocation = Location(latitude: 55.75, longitude: 37.62)
+        self.currentLocation = Location(latitude: 55.55, longitude: 37.92)
         self.GEOService = GeolocationService(delegate: self)
     }
     

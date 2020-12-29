@@ -12,6 +12,15 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     var viewModel: AddNoteViewModelProtocol!
 
     var pickedPhotoes = [UIImage]()
+    
+    var currentNote = Notes()
+    var flag: Bool = false
+    
+    convenience init(currentNote: Notes){
+        self.init(nibName: nil, bundle: nil)
+        self.currentNote = currentNote
+        self.flag = true
+    }
 
 // MARK: properties
     private let mainView: UIScrollView = {
@@ -214,6 +223,12 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         addGeoButton.addTarget(self, action: #selector(addGeoButtonPressed(sender:)), for: .touchUpInside)
         mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height)
         
+        if flag == true {
+            noteTitleField.text = currentNote.title
+            geoField.text = String(currentNote.latitude) + " " + String(currentNote.longitude)
+            textView.text = currentNote.info
+        }
+        
         configureUI()
         
     }
@@ -240,7 +255,9 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         navigationController?.navigationBar.barTintColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1)
         navigationItem.title = "Новая заметка"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(dismissSelf))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveNewNote))
+        if flag == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveNewNote))
+        }
     }
     // выбор фотографий из галереи
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -286,14 +303,19 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let location = geoField.text!.components(separatedBy: " ")
         let latitude = location.first ?? "0"
         let longitude = location.last ?? "0"
-        
-        guard let imageData = pickedPhotoes[0].pngData() else {
-            let errorInfo = UIAlertController(title: "Ошибка сохранения", message: "Добавьте изображение!", preferredStyle: .alert) //STRINGS:
-            errorInfo.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
-            self.present(errorInfo, animated: true, completion: nil)
-            return
+        var imageData: Any?
+        if pickedPhotoes.isEmpty == false {
+            guard let image = pickedPhotoes[0].pngData() else {
+                let errorInfo = UIAlertController(title: "Ошибка сохранения", message: "Добавьте изображение!", preferredStyle: .alert) //STRINGS:
+                errorInfo.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+                self.present(errorInfo, animated: true, completion: nil)
+                return
+            }
+            imageData = image
+        } else {
+            imageData = nil
         }
-        viewModel.addNewNote(title: title, info: info, latitude: Double(latitude)!, longitude: Double(longitude)!, media: imageData)
+        viewModel.addNewNote(title: title, info: info, latitude: Double(latitude)!, longitude: Double(longitude)!, media: imageData as! Data)
         self.dismiss(animated: true)
         //TODO: добавить несколько фотографий
     }
@@ -331,12 +353,17 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pickedPhotoes.count
     }
-    // отображение картинок в ячейках
+    // отображение ячейки
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        if pickedPhotoes.count != 0 {
+        if pickedPhotoes.count != 0 && flag == false{
             cell.photo.image = pickedPhotoes[indexPath.row]
+            photoCollection.layer.borderColor = UIColor.gray.cgColor
+            mediaLable.isHidden = false
+            mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height + 125)
+        } else {
+            cell.photo.image = UIImage(data: currentNote.media)
             photoCollection.layer.borderColor = UIColor.gray.cgColor
             mediaLable.isHidden = false
             mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height + 125)
