@@ -33,6 +33,15 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         return collection
     }()
     
+    private let labelVC: UILabel = {
+        let lable = UILabel(frame:CGRect(x: -30, y: 50, width: 300, height: 100))
+        lable.text = "Список заметок" //STRINGS:
+        lable.font = .systemFont(ofSize: 24, weight: .bold)
+        lable.textColor = .white
+        lable.textAlignment = .center
+        return lable
+         }()
+    
     override func viewWillAppear(_ animated: Bool) {
         ThemeManager.currentTheme()
     }
@@ -58,6 +67,8 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         notesCollection.delegate = self
         notesCollection.dataSource = self
         notesCollection.backgroundColor = theme.secondColor
+        
+        view.addSubview(labelVC)
         
         notesCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         notesCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
