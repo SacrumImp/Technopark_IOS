@@ -130,7 +130,7 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-      return (UIImage(data: notesList[indexPath.item].media)?.size.height)!
+      return CGFloat(220)
     }
 }
 
