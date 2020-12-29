@@ -25,15 +25,13 @@ class SettingsCell: UITableViewCell {
 enum SettingsSection: Int, CaseIterable, CustomStringConvertible {
     case Auth
     case Main
-    case Conf
     case DataControl
     case Info
     
     var description: String {
         switch self {
         case .Auth: return "Авторизация"
-        case .Main: return "Остальное"
-        case .Conf: return "Безопасность"
+        case .Main: return "Главное"
         case .DataControl: return "Управление данными"
         case .Info: return "Информация"
         }
@@ -57,39 +55,24 @@ enum AuthSection: Int, CaseIterable, CustomStringConvertible {
 enum MainSection: Int, CaseIterable, CustomStringConvertible {
     case theme
     case firstScreen
-    case other
     
     var description: String {
         switch self {
         case .theme: return "Тема"
         case .firstScreen: return "Начальный экран"
-        case .other: return "Другое"
-        }
-    }
-}
-
-// пункты в секции "Безопасность"
-enum ConfidentialitySection: Int, CaseIterable, CustomStringConvertible {
-    case password
-    case changePassword
-    
-    var description: String {
-        switch self {
-        case .password: return "Защита паролем"
-        case .changePassword: return "Изменение пароля"
         }
     }
 }
 
 // пункты в секции "Управление данными"
 enum DataControlSection: Int, CaseIterable, CustomStringConvertible {
-    case password
-    case changePassword
+    case sync
+    case backup
     
     var description: String {
         switch self {
-        case .password: return "Синхронизироваться"
-        case .changePassword: return "Восстановить данные"
+        case .sync: return "Синхронизация"
+        case .backup: return "Восстановить данные"
         }
     }
 }
@@ -101,8 +84,8 @@ enum InfoSection: Int, CaseIterable, CustomStringConvertible {
     
     var description: String {
         switch self {
-        case .about: return "О PinNote"
-        case .feedBack: return "Обратная связь"
+        case .about: return "О Приложении"
+        case .feedBack: return "Оставить отзыв"
         }
     }
 }

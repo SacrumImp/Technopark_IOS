@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         GMSServices.provideAPIKey(dictOfAPIs["GMSServices"]?["key"] ?? "0")
-        
-        ThemeManager.applyTheme(theme: .theme1)
+        // установка темы на запуске
+        ThemeManager.applyTheme(theme: Theme(rawValue: Common.Settings.SelectedTheme)!)
         
         return true
     }
