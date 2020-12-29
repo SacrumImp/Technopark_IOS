@@ -14,8 +14,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // MARK: Properties
     
-    let primaryColor = UIColor.red
-    let secondaryColor = UIColor.blue
+    var primaryColor = UIColor.red
+    var secondaryColor = UIColor.blue
+    
+    private var theme = ThemeManager.currentTheme()
     
     var viewModel: MapViewModelProtocol!{
         didSet{
@@ -55,6 +57,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         view.addSubview(testSettingsButton)
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
+        testSettingsButton.setTitleColor(theme.barButtons, for: .normal)
+        testSettingsButton.layer.backgroundColor = theme.firstColor.cgColor.copy(alpha: 0.7)
+        testSettingsButton.layer.borderColor = theme.mainColor.cgColor
         
         notesList = viewModel.getNotes()
         
@@ -79,6 +84,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         for note in notesList{
             let position = CLLocationCoordinate2D(latitude: note.latitude, longitude: note.longitude)
             marker = GMSMarker(position: position)
+            primaryColor = theme.secondColor
             let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 50, height: 56), image: note.media, borderColor: primaryColor, tag: index)
             marker.iconView = customMarker
             marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0)
@@ -121,6 +127,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         guard let customMarkerView = marker.iconView as? CustomMarkerView else { return false }
         let img = customMarkerView.image
+        secondaryColor = theme.firstColor
         let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: 50, height: 56), image: img, borderColor: secondaryColor, tag: customMarkerView.tag)
         marker.iconView = customMarker
         return false
@@ -218,6 +225,8 @@ class CustomMarkerView: UIView {
 
 class CustomMarkerInfoWindow: UIView {
     
+    private var theme = ThemeManager.currentTheme()
+    
     var titleLabel: UILabel = {
         let v = UILabel()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -238,7 +247,7 @@ class CustomMarkerInfoWindow: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
+        backgroundColor = theme.secondColor
         self.addSubview(imgView)
         imgView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         imgView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

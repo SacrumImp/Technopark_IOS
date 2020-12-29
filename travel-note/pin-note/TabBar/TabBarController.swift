@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate{
     
+    private var theme = ThemeManager.currentTheme()
+    
     // перед появлением определяем на какой странице будет открыт tab bar
     override func viewWillAppear(_ animated: Bool) {
         if Common.Settings.WasTerminated == true {
@@ -75,6 +77,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         blurView.frame = self.tabBar.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.tabBar.insertSubview(blurView, at: 0)
+        self.tabBar.barTintColor = theme.mainColor
         
         // кнопка новой заметки
         let addItem = self.tabBar.items![1] as UITabBarItem

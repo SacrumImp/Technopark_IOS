@@ -56,7 +56,7 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         view.backgroundColor = theme.firstColor
         view.addSubview(testSettingsButton)
         testSettingsButton.addTarget(self, action: #selector(openSettings(sender:)), for: .touchUpInside)
-        testSettingsButton.setTitleColor(theme.barButtons, for: .normal) //красным чтоб заметно было
+        testSettingsButton.setTitleColor(theme.barButtons, for: .normal)
         testSettingsButton.layer.backgroundColor = theme.thirdColor.cgColor.copy(alpha: 0.3)
         testSettingsButton.layer.borderColor = theme.mainColor.cgColor
         
