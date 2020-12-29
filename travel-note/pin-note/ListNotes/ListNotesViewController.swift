@@ -90,13 +90,14 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return notesList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "noteCell", for: indexPath) as! NoteCell
         if notesList.isEmpty == false {
+            print(notesList, indexPath.row)
             cell.photo.image = UIImage(data: notesList[indexPath.row].media)
             cell.titleLabel.text = notesList[indexPath.row].title
         }
