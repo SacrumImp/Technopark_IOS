@@ -27,8 +27,8 @@ class ThemeViewController: UIViewController {
         
         // углы и цвет
         SC.layer.cornerRadius = 4.0
-        SC.backgroundColor = theme.barTintColor
-        SC.tintColor = theme.secondaryColor
+        SC.backgroundColor = theme.firstColor
+        SC.tintColor = theme.secondColor
 
         // обработка изменения значения
         SC.addTarget(self, action: #selector(sgDidSwich(sender:)), for: .valueChanged)
@@ -38,7 +38,9 @@ class ThemeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = theme.secondaryColor
+        view.backgroundColor = theme.fourthColor
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Применить", style: UIBarButtonItem.Style.bordered, target: self, action: #selector(dismissSelf))
     }
     
     // обработка изменения значения SC
@@ -55,6 +57,10 @@ class ThemeViewController: UIViewController {
         default:
             print("gg")
         }
+    }
+    
+    @objc func dismissSelf() {
+        dismiss(animated: true, completion: nil)
     }
 
 }
