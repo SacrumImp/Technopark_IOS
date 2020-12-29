@@ -35,6 +35,7 @@
 		9200E2C92598589B006E97E6 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200E2C82598589B006E97E6 /* AddNoteViewController.swift */; };
 		9211F11F2546F8B800E3BD16 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F11E2546F8B800E3BD16 /* MapViewController.swift */; };
 		9272B3CD259AE1C10060DE37 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272B3CC259AE1C10060DE37 /* AboutViewController.swift */; };
+		9272B3F4259B06A20060DE37 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272B3F3259B06A20060DE37 /* ThemeModel.swift */; };
 		92B3668A255A902B0015B94E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36689255A902B0015B94E /* SettingsViewController.swift */; };
 		92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B36691255A903C0015B94E /* SettingsViewModel.swift */; };
 		92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B366A6255AA8250015B94E /* SettingsModel.swift */; };
@@ -110,6 +111,7 @@
 		9200E2C82598589B006E97E6 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNoteViewController.swift; path = "pin-note/AddNotes/AddNoteViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9211F11E2546F8B800E3BD16 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9272B3CC259AE1C10060DE37 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		9272B3F3259B06A20060DE37 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
 		92B36689255A902B0015B94E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		92B36691255A903C0015B94E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		92B366A6255AA8250015B94E /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				92B75C52255E611900594BEC /* FirstScreenViewController.swift */,
 				92E4C02A258E0B4D00786EE9 /* ThemeManager.swift */,
 				92EDF31D259A63E800A913FF /* ThemeViewController.swift */,
+				9272B3F3259B06A20060DE37 /* ThemeModel.swift */,
 			);
 			path = MainSection;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				204428D5254E111700E05E9D /* ListNotesViewController.swift in Sources */,
 				20E531C425424B1F0038453E /* PhoneView.swift in Sources */,
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
+				9272B3F4259B06A20060DE37 /* ThemeModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				20CFDC362599545300A2D25E /* PinNoteModel.xcdatamodeld in Sources */,

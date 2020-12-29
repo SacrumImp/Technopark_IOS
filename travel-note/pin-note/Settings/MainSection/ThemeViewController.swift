@@ -9,58 +9,82 @@ import UIKit
 
 class ThemeViewController: UIViewController {
 
-    private let theme = ThemeManager.currentTheme()
+    private var tableView: UITableView!
     
-    override func loadView() {
-        super.loadView()
-        self.view.backgroundColor = .systemBackground
-        
-        // инит
-        let items = ["Gray", "Dust"]
-        let SC = UISegmentedControl(items: items)
-        SC.selectedSegmentIndex = Common.Settings.SelectedTheme
-        
-        // рамка
-        let frame = UIScreen.main.bounds
-        SC.frame = CGRect(x: frame.minX + 10, y: frame.minY + 25,
-                                width: frame.width - 30, height: frame.height*0.05)
-        
-        // углы и цвет
-        SC.layer.cornerRadius = 4.0
-        SC.backgroundColor = theme.firstColor
-        SC.tintColor = theme.secondColor
-
-        // обработка изменения значения
-        SC.addTarget(self, action: #selector(sgDidSwich(sender:)), for: .valueChanged)
-
-        self.view.addSubview(SC)
-    }
+    private var theme = ThemeManager.currentTheme()
+    
+    private var indexPathRemider: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = theme.fourthColor
+        configureUI()
+    }
+    
+    func configureTableView() {
+        tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 60
+        tableView.backgroundColor = theme.tableCellColor
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Применить", style: UIBarButtonItem.Style.bordered, target: self, action: #selector(dismissSelf))
+        tableView.register(ThemeCell.self, forCellReuseIdentifier: "ThemeCell")
+        view.addSubview(tableView)
+        tableView.frame = view.frame
+        
+        let frame = CGRect(x: 0, y: 88, width: view.frame.width, height: 100)
+        tableView.largeContentTitle = "Темы"
+        tableView.tableFooterView = UIView()
     }
     
-    // обработка изменения значения SC
-    @objc func sgDidSwich(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            Common.Settings.SelectedTheme = Int(sender.selectedSegmentIndex)
-            ThemeManager.applyTheme(theme: Theme(rawValue: Int(sender.selectedSegmentIndex))!)
-            self.view.layoutIfNeeded()
-        case 1:
-            Common.Settings.SelectedTheme = Int(sender.selectedSegmentIndex)
-            ThemeManager.applyTheme(theme: Theme(rawValue: Int(sender.selectedSegmentIndex))!)
-            self.view.layoutIfNeeded()
-        default:
-            print("gg")
-        }
+    func configureUI() {
+        configureTableView()
+        
+        navigationItem.title = "Выбор темы"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Применить", style: .done, target: self, action: #selector(dismissSelf))
     }
-    
     @objc func dismissSelf() {
+        Common.Settings.SelectedTheme = indexPathRemider
+        ThemeManager.applyTheme(theme: Theme(rawValue: indexPathRemider)!)
+        self.view.layoutIfNeeded()
         dismiss(animated: true, completion: nil)
     }
+}
 
+// MARK: Расширение
+extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    // ВЫСОТА ЗАГОЛОВКА СЕКЦИИ
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 55
+    }
+    
+    // ЗАПОЛНЕНИЕ ЯЧЕЕК
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThemeCell", for: indexPath) as? ThemeCell else {return UITableViewCell()}
+
+        cell.backgroundColor = self.theme.tableCellColor
+        cell.selectionStyle = UITableViewCell.SelectionStyle.blue
+        
+        let cellText = MainThemeSection(rawValue: indexPath.row)
+        cell.textLabel?.text = cellText?.description
+        
+        if (Common.Settings.SelectedTheme == indexPath.row) {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
+        }
+        
+        return cell
+    }
+    
+    // ОБРАБАТЫВАЕМ ВЫБОР ЯЧЕЙКИ
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        indexPathRemider = indexPath.row
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.none)
+
+        
+    }
 }
