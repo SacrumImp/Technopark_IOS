@@ -19,7 +19,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = theme.tableCellColor
         configureUI()
     }
     
@@ -28,6 +27,7 @@ class SettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 60
+        tableView.backgroundColor = theme.tableCellColor
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         tableView.register(SettingsTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: "SettingsSectionHeader")
@@ -169,9 +169,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 //dismiss(animated: true, completion: nil)
                 let authentificationViewModel = AuthentificationViewModel()
                 let authentificationView = AuthenticationPhoneViewController(viewModel: authentificationViewModel)
-                authentificationView.modalTransitionStyle = .coverVertical
-                authentificationView.modalPresentationStyle = .automatic
-                self.present(authentificationView, animated: true)
+                if #available(iOS 13, *) {
+                    authentificationView.modalTransitionStyle = .coverVertical
+                    authentificationView.modalPresentationStyle = .automatic
+                    self.present(authentificationView, animated: true)
+                } else {
+                    navigationController?.pushViewController(authentificationView, animated: true)
+                }
+                
             } else if cellText == AuthSection.logOut.description {
                 do{
                     try FirebaseAuth.Auth.auth().signOut()
