@@ -16,11 +16,11 @@ extension Notes {
         return NSFetchRequest<Notes>(entityName: "Notes")
     }
 
-    @NSManaged public var title: String
-    @NSManaged public var latitude: Int64
-    @NSManaged public var longitude: Int64
     @NSManaged public var info: String
-    @NSManaged public var media: Data?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
+    @NSManaged public var media: Data
+    @NSManaged public var title: String
 
 }
 

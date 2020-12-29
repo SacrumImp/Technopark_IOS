@@ -14,6 +14,10 @@ class DataManager {
     
     static let shared = DataManager()
     
+    var mainQueueContext: NSManagedObjectContext {
+        container.viewContext
+    }
+    
     private init(){
         self.container = NSPersistentContainer(name: "PinNoteModel")
         initializeStack()
@@ -40,6 +44,11 @@ class DataManager {
                 debugPrint(error.localizedDescription)
             }
         }
+    }
+    
+    func loadNotes() -> [Notes]{
+        let fetchRequest: NSFetchRequest<Notes> = NSFetchRequest(entityName: "Notes")
+        return (try? container.viewContext.fetch(fetchRequest)) ?? []
     }
     
 }

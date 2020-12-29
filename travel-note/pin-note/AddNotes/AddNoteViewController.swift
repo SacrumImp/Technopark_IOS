@@ -211,6 +211,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         photoCollection.delegate = self
         photoCollection.dataSource = self
         addMediaButton.addTarget(self, action: #selector(addMediaButtonPressed(sender:)), for: .touchUpInside)
+        addGeoButton.addTarget(self, action: #selector(addGeoButtonPressed(sender:)), for: .touchUpInside)
         mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height)
         
         configureUI()
@@ -263,15 +264,38 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         present(picker, animated: true)
     }
     
+    @objc func addGeoButtonPressed(sender: UIButton) {
+        let location = viewModel.currentLocation
+        geoField.text = "\(location.latitude) \(location.longitude)"
+    }
+    
     @objc func saveNewNote() {
         guard let title = noteTitleField.text, !title.isEmpty else {
-            return //TODO: написать ошибку
+            let errorTitle = UIAlertController(title: "Ошибка сохранения", message: "Введите название заметки!", preferredStyle: .alert) //STRINGS:
+            errorTitle.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+            self.present(errorTitle, animated: true, completion: nil)
+            return
         }
         guard let info = textView.text, !info.isEmpty else {
-            return //TODO: написать ошибку
+            let errorInfo = UIAlertController(title: "Ошибка сохранения", message: "Введите описание заметки!", preferredStyle: .alert) //STRINGS:
+            errorInfo.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+            self.present(errorInfo, animated: true, completion: nil)
+            return
         }
-        viewModel.addNewNote(title: title, info: info, latitude: 0, longitude: 0, media: Data())
-        //TODO: добавить NSData, решить где доставать широту и долготу
+        
+        let location = geoField.text!.components(separatedBy: " ")
+        let latitude = location.first ?? "0"
+        let longitude = location.last ?? "0"
+        
+        guard let imageData = pickedPhotoes[0].pngData() else {
+            let errorInfo = UIAlertController(title: "Ошибка сохранения", message: "Добавьте изображение!", preferredStyle: .alert) //STRINGS:
+            errorInfo.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+            self.present(errorInfo, animated: true, completion: nil)
+            return
+        }
+        viewModel.addNewNote(title: title, info: info, latitude: Double(latitude)!, longitude: Double(longitude)!, media: imageData)
+        self.dismiss(animated: true)
+        //TODO: добавить несколько фотографий
     }
     
 // MARK: textField delegate funcs

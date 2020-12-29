@@ -74,7 +74,8 @@ class AuthenticationPhoneViewController: UIViewController, AuthenticationPhoneVi
             switch error { //TODO: поработать с ошибками
                 case .noConnection:
                     let errorPhone = UIAlertController(title: "Ошибка", message: "Не удалось авторизироваться", preferredStyle: .alert) //STRINGS:
-                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in self.dismiss(animated: true)}))
+                    errorPhone.addAction(UIAlertAction(title: "Ок", style: .default, handler: { (_) in return}))
+                    self.present(errorPhone, animated: true, completion: nil)
                 default:
                     break
             }

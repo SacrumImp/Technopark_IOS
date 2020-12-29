@@ -34,6 +34,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         addNoteViewController.viewModel = addNoteVCViewModel
         
         listViewController = ListNotesViewController()
+        let listVCViewModel = ListNotesViewModel()
+        listViewController.viewModel = listVCViewModel
         
         
         mapViewController.tabBarItem = UITabBarItem(title: "Карта", image: UIImage(named: "tabbar-map-icon.svg"), tag: 0) //STRINGS:
@@ -48,12 +50,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
           if viewController.isKind(of: AddNoteViewController.self) {
-             let vc =  AddNoteViewController()
-             let navVC = UINavigationController(rootViewController: vc)
-             navVC.modalTransitionStyle = .crossDissolve
-             navVC.modalPresentationStyle = .fullScreen
-             self.present(navVC, animated: true, completion: nil)
-             return false
+            let vc =  AddNoteViewController()
+            let addNoteVCViewModel = AddNoteViewModel()
+            vc.viewModel = addNoteVCViewModel
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalTransitionStyle = .crossDissolve
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true, completion: nil)
+            return false
           }
           return true
     }

@@ -9,6 +9,7 @@ protocol MapViewModelProtocol: class{
     
     var currentLocation: Location {get}
     var currentLocationDidChange: ((Location) -> ())? { get set }
+    func getNotes() -> [Notes]
     
 }
 
@@ -23,9 +24,24 @@ class MapViewModel: MapViewModelProtocol{
     
     private var GEOService: GeolocationService!
     
+    private let dataManager: DataManager
+    
+    private var dataSource: [Notes]
+    
     init() {
         self.currentLocation = Location(latitude: 55.75, longitude: 37.62)
+        dataSource = [Notes]()
+        dataManager = DataManager.shared
         self.GEOService = GeolocationService(delegate: self)
+    }
+    
+    func getNotes() -> [Notes] {
+        refreshData()
+        return dataSource
+    }
+    
+    private func refreshData(){
+        dataSource = dataManager.loadNotes()
     }
     
 }
