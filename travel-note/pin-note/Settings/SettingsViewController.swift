@@ -94,9 +94,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0: return 1
         case 1: return MainSection.allCases.count
-        case 2: return ConfidentialitySection.allCases.count
-        case 3: return DataControlSection.allCases.count
-        case 4: return InfoSection.allCases.count
+        case 2: return DataControlSection.allCases.count
+        case 3: return InfoSection.allCases.count
         default:
             return 0
         }
@@ -137,9 +136,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = cellText
         case .Main:
             let cellText = MainSection(rawValue: indexPath.row)
-            cell.textLabel?.text = cellText?.description
-        case .Conf:
-            let cellText = ConfidentialitySection(rawValue: indexPath.row)
             cell.textLabel?.text = cellText?.description
         case .DataControl:
             let cellText = DataControlSection(rawValue: indexPath.row)
@@ -196,8 +192,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let vc = ThemeViewController()
                 navigationController?.pushViewController(vc, animated: true)
             }
-        case .Conf:
-            print("tapped in conf section")
         case .DataControl:
             print("tapped in data control section")
         case .Info:
