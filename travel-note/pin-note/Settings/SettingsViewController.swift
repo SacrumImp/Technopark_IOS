@@ -15,7 +15,11 @@ class SettingsViewController: UIViewController {
     
     private var tableView: UITableView!
     
-    private let theme = ThemeManager.currentTheme()
+    private var theme = ThemeManager.currentTheme()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +48,8 @@ class SettingsViewController: UIViewController {
         
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = theme.barStyle
-        navigationController?.navigationBar.barTintColor = theme.barTintColor
-        navigationController?.navigationBar.tintColor = UIColor.white;
+        navigationController?.navigationBar.barTintColor = theme.firstColor
+        navigationController?.navigationBar.tintColor = theme.barButtons;
         navigationItem.title = "Настройки"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Закрыть", style: .plain, target: self, action: #selector(dismissSelf))
     }
@@ -69,9 +73,9 @@ final class SettingsTableViewSectionHeader: UITableViewHeaderFooterView {
         headerLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
         
         headerLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        headerLabel.textColor = theme.secondaryLableTextColor
+        headerLabel.textColor = theme.secondTextColor
         
-        contentView.backgroundColor = theme.backgroundColor
+        contentView.backgroundColor = theme.secondColor
     }
     
     func setHeaderTitle(_ text: String?) {
@@ -118,8 +122,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell else {return UITableViewCell()}
         
-        let theme = ThemeManager.currentTheme()
-        cell.backgroundColor = theme.tableCellColor
+        //let theme = ThemeManager.currentTheme()
+        cell.backgroundColor = self.theme.tableCellColor
         
         guard let section = SettingsSection(rawValue: indexPath.section) else {return UITableViewCell()}
         
@@ -201,6 +205,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             print("tapped in data control section")
         case .Info:
             print("tapped in info section")
+            let cellText = cell.textLabel?.text
+            if cellText == InfoSection.about.description {
+                let vc = AboutViewController()
+                navigationController?.pushViewController(vc, animated: true)
+            } else if cellText == InfoSection.feedBack.description {
+                print("nothing")
+            }
         }
         
     }
