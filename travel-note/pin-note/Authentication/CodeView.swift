@@ -16,6 +16,8 @@ class AuthenticationCodeViewController: UIViewController, AuthenticationCodeView
     
     private var viewModel: AuthentificationViewModelProtocol!
     
+    private let theme = ThemeManager.currentTheme()
+    
     convenience init(viewModel: AuthentificationViewModelProtocol){
         self.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
@@ -37,7 +39,7 @@ class AuthenticationCodeViewController: UIViewController, AuthenticationCodeView
     }()
     
     let codeTextField: UITextField! = {
-        let textField = UITextField(frame: CGRect(x: 0, y: 60, width: 103, height: 100))
+        let textField = UITextField(frame: CGRect(x: 0, y: 60, width: 130, height: 100))
         textField.placeholder = "Код" //STRINGS:
         textField.textContentType = .oneTimeCode
         textField.keyboardType = .numberPad
@@ -49,7 +51,7 @@ class AuthenticationCodeViewController: UIViewController, AuthenticationCodeView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = theme.fourthColor
         
         view.addSubview(codeLabel)
         codeLabel.center.x = self.view.center.x
@@ -81,11 +83,13 @@ class AuthenticationCodeViewController: UIViewController, AuthenticationCodeView
                     break
             }
             self.modalTransitionStyle = .coverVertical
+            self.parent?.dismiss(animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
-            let viewController = TabBarController()
-            viewController.modalTransitionStyle = .crossDissolve
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true)
+            let settingsView = SettingsViewController()
+            let navVC = UINavigationController(rootViewController: settingsView)
+            navVC.modalTransitionStyle = .crossDissolve
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true)
         })
     }
 }

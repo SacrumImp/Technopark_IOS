@@ -27,8 +27,8 @@ class FirstScreenViewController: UIViewController {
         
         // углы и цвет
         SC.layer.cornerRadius = 4.0
-        SC.backgroundColor = theme.barTintColor
-        SC.tintColor = theme.secondaryColor
+        SC.backgroundColor = theme.firstColor
+        SC.tintColor = theme.secondColor
 
         // обработка изменения значения
         SC.addTarget(self, action: #selector(sgDidSwich(sender:)), for: .valueChanged)
@@ -38,7 +38,7 @@ class FirstScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = theme.secondaryColor
+        view.backgroundColor = theme.fourthColor
     }
     
     // обработка изменения значения SC
