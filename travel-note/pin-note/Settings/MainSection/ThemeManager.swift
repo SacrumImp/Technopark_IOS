@@ -55,7 +55,16 @@ enum Theme: Int {
         }
     }
     
-    var barTintColor: UIColor {
+    var barButtons: UIColor {
+        switch self {
+        case .gray:
+            return .white
+        case .dust:
+            return UIColor().colorFromHexString("423730")
+        }
+    }
+    
+    var firstColor: UIColor {
         switch self {
         case .gray:
             return .darkGray
@@ -63,16 +72,8 @@ enum Theme: Int {
             return UIColor(red: 145/255, green: 138/255, blue: 118/255, alpha: 1)
         }
     }
-
-    var navigationBackgroundImage: UIImage? {
-        return self == .gray ? UIImage(named: "navBackground") : nil
-    }
-
-    var tabBarBackgroundImage: UIImage? {
-        return self == .gray ? UIImage(named: "tabBarBackground") : nil
-    }
-
-    var backgroundColor: UIColor {
+    
+    var secondColor: UIColor {
         switch self {
         case .gray:
             return .gray
@@ -80,8 +81,8 @@ enum Theme: Int {
             return UIColor(red: 184/255, green: 174/255, blue: 147/255, alpha: 1)
         }
     }
-
-    var secondaryColor: UIColor {
+    
+    var thirdColor: UIColor {
         switch self {
         case .gray:
             return .lightGray
@@ -90,6 +91,14 @@ enum Theme: Int {
         }
     }
     
+    var fourthColor: UIColor {
+        switch self {
+        case .gray:
+            return .white
+        case .dust:
+            return UIColor(red: 235/255, green: 225/255, blue: 195/255, alpha: 1)
+        }
+    }
     var tableCellColor: UIColor {
         switch self {
         case .gray:
@@ -117,15 +126,7 @@ enum Theme: Int {
         }
     }
     
-    var lableTextColor: UIColor {
-        switch self {
-        case .gray:
-            return .black
-        case .dust:
-            return UIColor().colorFromHexString("000000")
-        }
-    }
-    var secondaryLableTextColor: UIColor {
+    var secondTextColor: UIColor {
         switch self {
         case .gray:
             return .white
@@ -146,7 +147,7 @@ class ThemeManager {
         if let storedTheme = (UserDefaults.standard.value(forKey: SelectedThemeKey) as AnyObject).integerValue {
             return Theme(rawValue: storedTheme)!
         } else {
-            return .dust
+            return .gray
         }
     }
 
@@ -159,13 +160,11 @@ class ThemeManager {
         let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
         
-        UILabel.appearance().textColor = theme.lableTextColor
+        UILabel.appearance().textColor = theme.titleTextColor
 
         UINavigationBar.appearance().barStyle = theme.barStyle
-        UINavigationBar.appearance().setBackgroundImage(theme.navigationBackgroundImage, for: .default)
-        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "backArrow")
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "backArrowMaskFixed")
-        UINavigationBar.appearance().barTintColor = theme.barTintColor
+        UINavigationBar.appearance().barTintColor = theme.firstColor
+        UINavigationBar.appearance().tintColor = theme.barButtons
 
         //UITabBar.appearance().barStyle = theme.barStyle
         //UITabBar.appearance().backgroundImage = theme.tabBarBackgroundImage
@@ -173,30 +172,10 @@ class ThemeManager {
         let tabIndicator = UIImage(named: "tabBarSelectionIndicator")?.withRenderingMode(.alwaysTemplate)
         let tabResizableIndicator = tabIndicator?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 2.0, bottom: 0, right: 2.0))
         UITabBar.appearance().selectionIndicatorImage = tabResizableIndicator
+        
 
-        let controlBackground = UIImage(named: "controlBackground")?.withRenderingMode(.alwaysTemplate)
-            .resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3))
-        let controlSelectedBackground = UIImage(named: "controlSelectedBackground")?
-            .withRenderingMode(.alwaysTemplate)
-            .resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3))
+        UISegmentedControl.appearance().backgroundColor = theme.firstColor
+        UISegmentedControl.appearance().backgroundColor = theme.secondColor
 
-        UISegmentedControl.appearance().setBackgroundImage(controlBackground, for: .normal, barMetrics: .default)
-        UISegmentedControl.appearance().setBackgroundImage(controlSelectedBackground, for: .selected, barMetrics: .default)
-
-        UIStepper.appearance().setBackgroundImage(controlBackground, for: .normal)
-        UIStepper.appearance().setBackgroundImage(controlBackground, for: .disabled)
-        UIStepper.appearance().setBackgroundImage(controlBackground, for: .highlighted)
-        UIStepper.appearance().setDecrementImage(UIImage(named: "fewerPaws"), for: .normal)
-        UIStepper.appearance().setIncrementImage(UIImage(named: "morePaws"), for: .normal)
-
-        UISlider.appearance().setThumbImage(UIImage(named: "sliderThumb"), for: .normal)
-        UISlider.appearance().setMaximumTrackImage(UIImage(named: "maximumTrack")?
-            .resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0.0, bottom: 0, right: 6.0)), for: .normal)
-        UISlider.appearance().setMinimumTrackImage(UIImage(named: "minimumTrack")?
-            .withRenderingMode(.alwaysTemplate)
-            .resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 6.0, bottom: 0, right: 0)), for: .normal)
-
-        UISwitch.appearance().onTintColor = theme.mainColor.withAlphaComponent(0.3)
-        UISwitch.appearance().thumbTintColor = theme.mainColor
     }
 }
