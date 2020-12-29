@@ -9,6 +9,7 @@ import Foundation
 
 protocol ListNotesViewModelProtocol {
     func getNotes() -> [Notes]
+    func getCountOfNotes() -> Int
 }
 
 class ListNotesViewModel: ListNotesViewModelProtocol {
@@ -25,6 +26,11 @@ class ListNotesViewModel: ListNotesViewModelProtocol {
     func getNotes() -> [Notes] {
         refreshData()
         return dataSource
+    }
+    
+    func getCountOfNotes() -> Int {
+        refreshData()
+        return dataSource.count
     }
     
     private func refreshData(){

@@ -14,6 +14,10 @@ class DataManager {
     
     static let shared = DataManager()
     
+    var mainQueueContext: NSManagedObjectContext {
+        container.viewContext
+    }
+    
     private init(){
         self.container = NSPersistentContainer(name: "PinNoteModel")
         initializeStack()
