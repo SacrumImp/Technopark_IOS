@@ -11,6 +11,8 @@
 		204428AF254DBE4500E05E9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 204428AE254DBE4500E05E9D /* GoogleService-Info.plist */; };
 		204428D0254E105B00E05E9D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428CF254E105B00E05E9D /* TabBarController.swift */; };
 		204428D5254E111700E05E9D /* ListNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204428D4254E111700E05E9D /* ListNotesViewController.swift */; };
+		2061F4E5259B1F3900505B56 /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2061F4E3259B1F3900505B56 /* Notes+CoreDataClass.swift */; };
+		2061F4E6259B1F3900505B56 /* Notes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2061F4E4259B1F3900505B56 /* Notes+CoreDataProperties.swift */; };
 		20666087255976A300C963B9 /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20666086255976A300C963B9 /* API.plist */; };
 		20666174255F50B800C963B9 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20666173255F50B800C963B9 /* GeolocationService.swift */; };
 		20666193256AFE0A00C963B9 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20666192256AFE0A00C963B9 /* MapModel.swift */; };
@@ -27,8 +29,6 @@
 		20CFDC362599545300A2D25E /* PinNoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC342599545300A2D25E /* PinNoteModel.xcdatamodeld */; };
 		20CFDC562599591A00A2D25E /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC552599591A00A2D25E /* AddNoteViewModel.swift */; };
 		20CFDC6525995A1800A2D25E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC6425995A1700A2D25E /* DataManager.swift */; };
-		20CFDC78259A6D1A00A2D25E /* Notes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC76259A6D1A00A2D25E /* Notes+CoreDataClass.swift */; };
-		20CFDC79259A6D1A00A2D25E /* Notes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC77259A6D1A00A2D25E /* Notes+CoreDataProperties.swift */; };
 		20CFDC7E259A7A6D00A2D25E /* ListNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFDC7D259A7A6D00A2D25E /* ListNotesViewModel.swift */; };
 		20E531C425424B1F0038453E /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531C325424B1F0038453E /* PhoneView.swift */; };
 		20E531D82544FD900038453E /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E531D72544FD900038453E /* CodeView.swift */; };
@@ -75,6 +75,8 @@
 		204428AE254DBE4500E05E9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		204428CF254E105B00E05E9D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		204428D4254E111700E05E9D /* ListNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesViewController.swift; sourceTree = "<group>"; };
+		2061F4E3259B1F3900505B56 /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		2061F4E4259B1F3900505B56 /* Notes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		20666086255976A300C963B9 /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
 		20666173255F50B800C963B9 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		20666192256AFE0A00C963B9 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
@@ -98,8 +100,6 @@
 		20CFDC352599545300A2D25E /* PinNoteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PinNoteModel.xcdatamodel; sourceTree = "<group>"; };
 		20CFDC552599591A00A2D25E /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		20CFDC6425995A1700A2D25E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		20CFDC76259A6D1A00A2D25E /* Notes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		20CFDC77259A6D1A00A2D25E /* Notes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notes+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		20CFDC7D259A7A6D00A2D25E /* ListNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesViewModel.swift; sourceTree = "<group>"; };
 		20E531C325424B1F0038453E /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		20E531D72544FD900038453E /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
@@ -288,8 +288,8 @@
 		20CFDC3325994FA900A2D25E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				20CFDC76259A6D1A00A2D25E /* Notes+CoreDataClass.swift */,
-				20CFDC77259A6D1A00A2D25E /* Notes+CoreDataProperties.swift */,
+				2061F4E3259B1F3900505B56 /* Notes+CoreDataClass.swift */,
+				2061F4E4259B1F3900505B56 /* Notes+CoreDataProperties.swift */,
 				20CFDC342599545300A2D25E /* PinNoteModel.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -693,12 +693,12 @@
 				9211F11F2546F8B800E3BD16 /* MapViewController.swift in Sources */,
 				204428D5254E111700E05E9D /* ListNotesViewController.swift in Sources */,
 				20E531C425424B1F0038453E /* PhoneView.swift in Sources */,
+				2061F4E5259B1F3900505B56 /* Notes+CoreDataClass.swift in Sources */,
 				206E9724253B7B5A00A16B65 /* SceneDelegate.swift in Sources */,
 				9272B3F4259B06A20060DE37 /* ThemeModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				201690792554C4BE00330227 /* AuthenticationViewModel.swift in Sources */,
 				20CFDC362599545300A2D25E /* PinNoteModel.xcdatamodeld in Sources */,
-				20CFDC6F2599696700A2D25E /* Notes+CoreDataProperties.swift in Sources */,
 				9272B3CD259AE1C10060DE37 /* AboutViewController.swift in Sources */,
 				92B3668A255A902B0015B94E /* SettingsViewController.swift in Sources */,
 				9200E2C92598589B006E97E6 /* AddNoteViewController.swift in Sources */,
@@ -707,9 +707,9 @@
 				92B75C53255E611900594BEC /* FirstScreenViewController.swift in Sources */,
 				92B366A7255AA8250015B94E /* SettingsModel.swift in Sources */,
 				92EDF31E259A63E800A913FF /* ThemeViewController.swift in Sources */,
-				20CFDC6E2599696700A2D25E /* Notes+CoreDataClass.swift in Sources */,
 				92B75C5B255E6D8F00594BEC /* Common.swift in Sources */,
 				92B36692255A903C0015B94E /* SettingsViewModel.swift in Sources */,
+				2061F4E6259B1F3900505B56 /* Notes+CoreDataProperties.swift in Sources */,
 				20CFDC6525995A1800A2D25E /* DataManager.swift in Sources */,
 				92E4C02B258E0B4D00786EE9 /* ThemeManager.swift in Sources */,
 			);

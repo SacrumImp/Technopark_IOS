@@ -2,7 +2,7 @@
 //  Notes+CoreDataClass.swift
 //  pin-note
 //
-//  Created by Владислав Алпеев on 28.12.2020.
+//  Created by Владислав Алпеев on 29.12.2020.
 //
 //
 
