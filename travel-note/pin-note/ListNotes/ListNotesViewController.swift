@@ -34,7 +34,7 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         let height = UIScreen.main.bounds.size.height
         let marginLeft = CGFloat(15)
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         var collection = UICollectionView(frame: CGRect(x: marginLeft, y: 289 + (height/2), width: width - (marginLeft*2), height: 120), collectionViewLayout: layout)
         let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 5, height: 2.0))
         collection.register(NoteCell.self, forCellWithReuseIdentifier: "noteCell")
@@ -60,7 +60,7 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         notesCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         notesCollection.delegate = self
         notesCollection.dataSource = self
-        mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height)
+        //mainView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: mainView.bounds.size.height)
         
         configureConstraints()
     }
@@ -71,7 +71,7 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
         constraints.append(mainView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor))
         constraints.append(mainView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor))
         constraints.append(mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
-        constraints.append(mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+        constraints.append(mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100))
         
         NSLayoutConstraint.activate(constraints)
     }
@@ -96,8 +96,10 @@ class ListNotesViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "noteCell", for: indexPath) as! NoteCell
-        cell.photo.image = UIImage(data: notesList[indexPath.row].media)
-        cell.titleLabel.text = notesList[indexPath.row].title
+        if notesList.isEmpty == false {
+            cell.photo.image = UIImage(data: notesList[indexPath.row].media)
+            cell.titleLabel.text = notesList[indexPath.row].title
+        }
         notesCollection.layer.borderColor = UIColor.gray.cgColor
         return cell
     }
